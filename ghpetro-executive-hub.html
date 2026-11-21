@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GHPetro Executive Hub | منظومة جولدن هورس الشاملة للموظف الواحد</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              950: '#050d1a',
+              900: '#09192f',
+              800: '#0f294a',
+              700: '#173a66',
+            },
+            gold: {
+              50: '#fbf7ec',
+              100: '#f5ebd0',
+              200: '#ebd59b',
+              400: '#e2c265',
+              500: '#c59b27',
+              600: '#a8811b',
+              700: '#856412',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      --font-ar: 'Cairo', sans-serif;
+      --font-en: 'Inter', sans-serif;
+    }
+    body {
+      font-family: var(--font-ar), var(--font-en), sans-serif;
+    }
+    [dir="ltr"] body {
+      font-family: var(--font-en), var(--font-ar), sans-serif;
+    }
+    .font-ar { font-family: var(--font-ar), sans-serif; }
+    .font-en { font-family: var(--font-en), sans-serif; }
+
+    /* Letterhead Typography Pairings */
+    .pair-cairo-inter { --lh-ar: 'Cairo', sans-serif; --lh-en: 'Inter', sans-serif; }
+    .pair-ibm-jakarta { --lh-ar: 'IBM Plex Sans Arabic', sans-serif; --lh-en: 'Plus Jakarta Sans', sans-serif; }
+    .pair-tajawal-dm { --lh-ar: 'Tajawal', sans-serif; --lh-en: 'DM Sans', sans-serif; }
+    .pair-amiri-playfair { --lh-ar: 'Amiri', serif; --lh-en: 'Playfair Display', serif; }
+    .lh-preview-root { font-family: var(--lh-ar), var(--lh-en), sans-serif; }
+    .lh-preview-root .lh-en-text { font-family: var(--lh-en), sans-serif; }
+
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+    /* Print Styling for A4 Letterhead */
+    @media print {
+      body * { visibility: hidden; }
+      #a4-print-canvas, #a4-print-canvas * { visibility: visible; }
+      #a4-print-canvas {
+        position: fixed;
+        inset: 0;
+        width: 210mm !important;
+        min-height: 297mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        background: #ffffff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      @page { size: A4 portrait; margin: 0; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100/80 text-slate-900 antialiased selection:bg-gold-200 selection:text-navy-900">
+
+  <div class="flex min-h-screen flex-col lg:flex-row">
+
+    <!-- ==================== EXECUTIVE SIDEBAR (DESKTOP) & MOBILE DRAWER ==================== -->
+    <div id="mobile-sidebar-backdrop" class="fixed inset-0 z-40 hidden bg-navy-950/60 backdrop-blur-xs lg:hidden"></div>
+    <aside id="app-sidebar" class="fixed inset-y-0 start-0 z-50 flex w-72 -translate-x-full flex-col justify-between border-e border-slate-800 bg-navy-900 text-white transition-transform duration-200 rtl:translate-x-full lg:static lg:translate-x-0 rtl:lg:translate-x-0">
+      <div>
+        <!-- Brand Header -->
+        <div class="flex items-center justify-between border-b border-slate-800 px-5 py-4">
+          <div class="flex items-center gap-3">
+            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-gold-500/50 bg-gradient-to-br from-navy-800 to-navy-950 shadow-inner">
+              <svg class="h-7 w-7" viewBox="0 0 64 64" fill="none">
+                <circle cx="32" cy="32" r="28" stroke="#e2c265" stroke-width="1.8" stroke-dasharray="3 2"/>
+                <path d="M22 46H42L39 39C38 35 39 31 42 27C44 24 44 20 41 17L37 13L35 17C31 16 26 18 24 22L20 30C19 33 20 36 23 38L22 46Z" fill="#c59b27" stroke="#fff4d2" stroke-width="1.4" stroke-linejoin="round"/>
+                <circle cx="35" cy="20" r="1.6" fill="#09192f"/>
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-1.5">
+                <span class="font-en text-sm font-extrabold tracking-tight text-white">GHPetro</span>
+                <span class="rounded bg-gold-500/20 px-1.5 py-0.5 text-[9px] font-extrabold text-gold-400">HUB</span>
+              </div>
+              <p class="truncate text-[11px] font-semibold text-slate-300" data-i18n="sidebarSub">منظومة الموظف الواحد</p>
+            </div>
+          </div>
+          <button id="close-sidebar-btn" type="button" class="rounded-lg p-1.5 text-slate-400 hover:bg-white/10 hover:text-white lg:hidden">
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="space-y-1 px-3 py-4 text-xs">
+          <p class="px-3 pb-1 text-[10px] font-extrabold uppercase tracking-wider text-slate-400" data-i18n="navCore">الوحدات التشغيلية</p>
+
+          <button type="button" data-nav="command" class="nav-item flex w-full items-center gap-3 rounded-xl px-3.5 py-2.5 text-start font-bold transition">
+            <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            <span data-i18n="navCommand">لوحة القيادة والصفقات والتوسع</span>
+          </button>
+
+          <button type="button" data-nav="profile" class="nav-item flex w-full items-center gap-3 rounded-xl px-3.5 py-2.5 text-start font-bold transition">
+            <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <span data-i18n="navProfile">الملف التعريفي وبيانات KYC</span>
+          </button>
+
+          <button type="button" data-nav="calculators" class="nav-item flex w-full items-center gap-3 rounded-xl px-3.5 py-2.5 text-start font-bold transition">
+            <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+            <span data-i18n="navCalc">جميع الحاسبات البترولية والمالية</span>
+          </button>
+
+          <button type="button" data-nav="markets" class="nav-item flex w-full items-center gap-3 rounded-xl px-3.5 py-2.5 text-start font-bold transition">
+            <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            <span data-i18n="navMarkets">أسعار وأخبار وتوصيات السوق</span>
+          </button>
+
+          <button type="button" data-nav="crm" class="nav-item flex w-full items-center gap-3 rounded-xl px-3.5 py-2.5 text-start font-bold transition">
+            <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span data-i18n="navCrm">التجار والموردون والأطراف (CRM)</span>
+          </button>
+
+          <button type="button" data-nav="studio" class="nav-item flex w-full items-center gap-3 rounded-xl px-3.5 py-2.5 text-start font-bold transition">
+            <svg class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+            <span data-i18n="navStudio">استوديو الصياغة والقوالب والليتر هيد</span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- Sidebar Footer Card -->
+      <div class="border-t border-slate-800 p-4 text-xs">
+        <div class="rounded-xl border border-gold-500/30 bg-navy-800/70 p-3">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[11px] font-extrabold text-gold-400">DET: 778861</span>
+            <span class="rounded bg-emerald-500/20 px-1.5 py-0.5 text-[10px] font-bold text-emerald-300">Active</span>
+          </div>
+          <p class="mt-1 truncate text-[11px] text-slate-300">مكتب S01-21، الممزر، دبي</p>
+          <p class="font-en mt-0.5 text-[10px] text-slate-400">1 USD = 3.6725 AED (Pegged)</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================== MAIN CONTENT AREA ==================== -->
+    <div class="flex min-w-0 flex-1 flex-col">
+
+      <!-- Top Command Bar -->
+      <header class="sticky top-0 z-30 border-b border-slate-200 bg-white/95 px-4 py-3 shadow-xs backdrop-blur-md sm:px-6">
+        <div class="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-3">
+
+          <div class="flex items-center gap-2.5">
+            <button id="open-sidebar-btn" type="button" class="rounded-xl border border-slate-200 bg-slate-50 p-2 text-navy-900 hover:bg-slate-100 lg:hidden">
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+            <div>
+              <h1 class="text-sm font-extrabold text-navy-900 sm:text-base" data-i18n="topTitle">GHPetro Executive Hub | منظومة جولدن هورس الشاملة للموظف الواحد</h1>
+              <p class="hidden text-[11px] text-slate-500 sm:block" data-i18n="topSub">إدارة الصفقات، الحاسبات البترولية، ذكاء الأسواق، الموردون، والصياغة الرسمية في مكان واحد</p>
+            </div>
+          </div>
+
+          <!-- Global Instant Search + Language Toggle -->
+          <div class="flex flex-1 items-center justify-end gap-2 sm:max-w-xl">
+            <div class="relative flex-1">
+              <input
+                id="global-search-input"
+                type="text"
+                autocomplete="off"
+                placeholder="بحث شامل في كل المنظومة (صفقة، مورد، رخصة، منتج، سعر)..."
+                class="h-10 w-full rounded-xl border border-slate-300 bg-slate-50 ps-9 pe-3 text-xs text-slate-900 placeholder-slate-400 transition focus:border-gold-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold-500/20"
+              />
+              <svg class="pointer-events-none absolute inset-y-0 start-3 my-auto h-4 w-4 text-gold-600" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 103.5 10.5a7.5 7.5 0 0013.15 6.15z" />
+              </svg>
+              <!-- Global Search Dropdown Results -->
+              <div id="global-search-results" class="absolute inset-x-0 top-11 z-50 hidden max-h-80 overflow-y-auto rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl"></div>
+            </div>
+
+            <!-- Language Switcher -->
+            <div class="flex shrink-0 items-center rounded-xl border border-slate-200 bg-slate-100 p-1">
+              <button type="button" data-lang="ar" class="lang-btn rounded-lg px-2.5 py-1 text-[11px] font-bold transition">عربي</button>
+              <button type="button" data-lang="en" class="lang-btn rounded-lg px-2.5 py-1 text-[11px] font-bold transition">EN</button>
+              <button type="button" data-lang="dual" class="lang-btn rounded-lg px-2.5 py-1 text-[11px] font-bold transition">ثنائي</button>
+            </div>
+          </div>
+
+        </div>
+      </header>
+
+      <!-- Workspace Modules Container -->
+      <main class="mx-auto w-full max-w-[1440px] flex-1 px-4 py-6 sm:px-6">
+
+        <!-- ========================================================================= -->
+        <!-- MODULE 1: EXECUTIVE COMMAND, DEALS PIPELINE & EXPANSION OPPORTUNITIES     -->
+        <!-- ========================================================================= -->
+        <section id="mod-command" class="hub-module space-y-6">
+
+          <!-- Executive KPI Ribbon -->
+          <div class="grid grid-cols-2 gap-3 lg:grid-cols-4">
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-xs">
+              <p class="text-[11px] font-bold text-slate-400">الصفقات النشطة / Active Pipeline</p>
+              <p id="kpi-pipeline-val" class="mt-1 font-en text-xl font-extrabold text-navy-900 sm:text-2xl">AED 1,285,000</p>
+              <p id="kpi-pipeline-sub" class="mt-0.5 text-[11px] font-semibold text-emerald-600">4 صفقات قيد المتابعة</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-xs">
+              <p class="text-[11px] font-bold text-slate-400">الأرباح المتوقعة / Est. Net Margin</p>
+              <p id="kpi-margin-val" class="mt-1 font-en text-xl font-extrabold text-gold-700 sm:text-2xl">AED 94,200</p>
+              <p class="mt-0.5 text-[11px] text-slate-500">متوسط هامش الربح 7.3%</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-xs">
+              <p class="text-[11px] font-bold text-slate-400">الشركاء والموردون / Verified Network</p>
+              <p id="kpi-crm-count" class="mt-1 font-en text-xl font-extrabold text-navy-900 sm:text-2xl">8 أطراف</p>
+              <p class="mt-0.5 text-[11px] text-slate-500">ADNOC • Fujairah • SGS • Mashreq</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-xs">
+              <p class="text-[11px] font-bold text-slate-400">إنجاز مهام الموظف الواحد / Daily SOP</p>
+              <p id="kpi-sop-progress" class="mt-1 font-en text-xl font-extrabold text-emerald-600 sm:text-2xl">3 / 6</p>
+              <p class="mt-0.5 text-[11px] text-slate-500">خطة التشغيل اليومية الموحدة</p>
+            </div>
+          </div>
+
+          <!-- Active Deals & LOI Tracker -->
+          <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+              <div>
+                <span class="text-[10px] font-extrabold uppercase tracking-wider text-gold-600">DEALS &amp; LOI PIPELINE</span>
+                <h2 class="text-base font-extrabold text-navy-900 sm:text-lg">متابعة الصفقات وخطابات النوايا (Active Deals Tracker)</h2>
+              </div>
+              <button type="button" id="open-add-deal-btn" class="rounded-xl bg-navy-900 px-4 py-2 text-xs font-extrabold text-white shadow-xs hover:bg-navy-800">
+                + إضافة صفقة جديدة
+              </button>
+            </div>
+
+            <div id="deals-list-container" class="mt-4 grid gap-3 md:grid-cols-2"></div>
+          </div>
+
+          <!-- Company Expansion Opportunities & Single-Employee Daily SOP -->
+          <div class="grid gap-6 lg:grid-cols-12">
+
+            <!-- Expansion Opportunities (7 cols) -->
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs lg:col-span-7">
+              <div class="border-b border-slate-100 pb-3">
+                <span class="text-[10px] font-extrabold uppercase tracking-wider text-gold-600">STRATEGIC GROWTH ROADMAP</span>
+                <h2 class="text-base font-extrabold text-navy-900">فرص عمل وتوسع شركة جولدن هورس (Expansion Opportunities)</h2>
+              </div>
+
+              <div class="mt-4 space-y-3 text-xs">
+                <div class="rounded-xl border border-gold-300 bg-gold-50/50 p-3.5">
+                  <div class="flex items-center justify-between">
+                    <span class="font-extrabold text-navy-900">١. الاعتماد المباشر كموزع تجاري لمنتجات أدنوك (ADNOC B2B Reseller)</span>
+                    <span class="rounded-full bg-navy-900 px-2.5 py-0.5 text-[10px] font-bold text-gold-400">أولوية قصوى</span>
+                  </div>
+                  <p class="mt-1 leading-relaxed text-slate-700">استكمال صفقة 90,000 لتر من زيوت ADNOC Circulating Oil لبناء سجل توريد مباشر يتيح الحصول على أسعار الجملة المفضلة وعقود التوريد السنوية للمصانع وشركات المقاولات في الإمارات.</p>
+                </div>
+
+                <div class="rounded-xl border border-slate-200 bg-slate-50/70 p-3.5">
+                  <div class="flex items-center justify-between">
+                    <span class="font-extrabold text-navy-900">٢. التصدير الإقليمي للزيوت المعبأة (شرق أفريقيا، اليمن، والبحر الأحمر)</span>
+                    <span class="rounded-full bg-emerald-100 px-2.5 py-0.5 text-[10px] font-bold text-emerald-800">هامش ربح 12%–18%</span>
+                  </div>
+                  <p class="mt-1 leading-relaxed text-slate-700">الاستفادة من نشاط (تجارة مشتقات تكرير النفط خارج الدولة) عبر شحن حاويات 20 قدم (80 برميل × 208 لتر = 16,640 لتر) من زيوت المحركات والتوربينات عبر ميناء جبل علي إلى أسواق كينيا وتنزانيا واليمن.</p>
+                </div>
+
+                <div class="rounded-xl border border-slate-200 bg-slate-50/70 p-3.5">
+                  <div class="flex items-center justify-between">
+                    <span class="font-extrabold text-navy-900">٣. التداول الفوري لوقود الديزل منخفض الكبريت (Gasoil 10ppm Spot Trading)</span>
+                    <span class="rounded-full bg-sky-100 px-2.5 py-0.5 text-[10px] font-bold text-sky-800">دوران رأس مال سريع</span>
+                  </div>
+                  <p class="mt-1 leading-relaxed text-slate-700">تفعيل نشاط (تجارة وقود الديزل) عبر عقود الوساطة والتسليم الفوري (Back-to-Back TT / LC) من خزانات الفجيرة والحمرية إلى أساطيل النقل والمصانع المحلية.</p>
+                </div>
+
+                <div class="rounded-xl border border-slate-200 bg-slate-50/70 p-3.5">
+                  <div class="flex items-center justify-between">
+                    <span class="font-extrabold text-navy-900">٤. إطلاق بوابة طلبات التسعير الرقمية (RFQ Portal) وعلامة زيوت خاصة (White-Label)</span>
+                    <span class="rounded-full bg-purple-100 px-2.5 py-0.5 text-[10px] font-bold text-purple-800">نمو مستدام</span>
+                  </div>
+                  <p class="mt-1 leading-relaxed text-slate-700">ربط موقع <span class="font-mono font-bold">ghpetro.me</span> بنموذج طلب عروض أسعار فوري، والتعاقد مع مصانع الخلط في الشارقة والحمرية لإنتاج زيوت تحمل العلامة التجارية الخاصة لـ GHPetro.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Single-Employee Productivity & SOP Checklist (5 cols) -->
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs lg:col-span-5">
+              <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div>
+                  <span class="text-[10px] font-extrabold uppercase tracking-wider text-gold-600">SINGLE-OPERATOR WORKFLOW</span>
+                  <h2 class="text-base font-extrabold text-navy-900">قائمة التشغيل والتحسين للموظف الواحد</h2>
+                </div>
+                <button type="button" id="reset-sop-btn" class="text-[11px] font-bold text-slate-400 hover:text-navy-900">إعادة ضبط</button>
+              </div>
+
+              <div id="sop-checklist-container" class="mt-4 space-y-2 text-xs"></div>
+
+              <div class="mt-4 flex gap-2 border-t border-slate-100 pt-3">
+                <input id="new-sop-input" type="text" placeholder="أضف مهمة تشغيلية يومية..." class="flex-1 rounded-xl border border-slate-300 px-3 py-2 text-xs focus:border-gold-500 focus:outline-none" />
+                <button type="button" id="add-sop-btn" class="rounded-xl bg-navy-900 px-3.5 py-2 text-xs font-extrabold text-white hover:bg-navy-800">إضافة</button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- MODULE 2: CORPORATE PROFILE, KYC & DOCUMENT VAULT                         -->
+        <!-- ========================================================================= -->
+        <section id="mod-profile" class="hub-module hidden space-y-6">
+          <div class="rounded-2xl border border-slate-800 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-950 p-6 text-white shadow-md">
+            <div class="flex flex-col justify-between gap-4 border-b border-white/10 pb-4 md:flex-row md:items-center">
+              <div>
+                <span class="rounded-full border border-gold-400/40 bg-gold-500/15 px-3 py-0.5 text-[11px] font-bold text-gold-400">دائرة الاقتصاد والسياحة — دبي • رخصة رقم 778861</span>
+                <h2 class="mt-2 text-xl font-extrabold sm:text-2xl">جولدن هورس لتجارة مشتقات تكرير النفط خارج الدولة ش.ذ.م.م</h2>
+                <p class="font-en mt-1 text-sm font-bold text-gold-400">GOLDEN HORSE TRADING REFINED OIL PRODUCTS ABROAD L.L.C. (GHPetro)</p>
+              </div>
+              <button type="button" data-copy="Golden Horse Trading Refined Oil Products Abroad L.L.C. | جولدن هورس لتجارة مشتقات تكرير النفط خارج الدولة ش.ذ.م.م | DET License: 778861 | ERN: 2010000000000778861 | DCCI: 286926 | Office S01-21, Al Mamzar, Deira, Dubai, UAE | P.O. Box 341740 | Tel: +971 4 320 8870 | www.ghpetro.me" class="copy-btn shrink-0 rounded-xl bg-gold-500 px-4 py-2.5 text-xs font-extrabold text-navy-900 hover:bg-gold-400">
+                نسخ بطاقة KYC الكاملة
+              </button>
+            </div>
+
+            <div class="mt-4 grid grid-cols-2 gap-3 text-xs sm:grid-cols-4">
+              <div class="rounded-xl bg-white/5 p-3">
+                <p class="text-slate-400">رقم الرخصة التجارية</p>
+                <p class="mt-0.5 font-mono text-sm font-extrabold text-gold-400">778861</p>
+              </div>
+              <div class="rounded-xl bg-white/5 p-3">
+                <p class="text-slate-400">تاريخ التأسيس والانتهاء</p>
+                <p class="mt-0.5 font-bold text-white">21/03/2017 — 21/03/2027</p>
+              </div>
+              <div class="rounded-xl bg-white/5 p-3">
+                <p class="text-slate-400">رأس المال المدفوع</p>
+                <p class="mt-0.5 font-extrabold text-white">500,000 درهم إماراتي</p>
+              </div>
+              <div class="rounded-xl bg-white/5 p-3">
+                <p class="text-slate-400">عضوية غرفة دبي (DCCI)</p>
+                <p class="mt-0.5 font-mono text-sm font-extrabold text-gold-400">286926</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid gap-6 lg:grid-cols-2">
+            <!-- Legal & Licensing Table -->
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+              <h3 class="border-b border-slate-100 pb-3 text-sm font-extrabold text-navy-900">البيانات القانونية والعنوان الرسمي (انقر للنسخ)</h3>
+              <div class="mt-3 divide-y divide-slate-100 text-xs">
+                <div class="flex items-center justify-between py-2.5">
+                  <div>
+                    <p class="text-slate-400">الرقم الموحد للمنشأة (ERN)</p>
+                    <p class="font-mono font-bold text-navy-900">2010000000000778861</p>
+                  </div>
+                  <button type="button" data-copy="2010000000000778861" class="copy-btn rounded-lg bg-slate-100 px-2.5 py-1 font-bold text-navy-900 hover:bg-gold-100">نسخ</button>
+                </div>
+                <div class="flex items-center justify-between py-2.5">
+                  <div>
+                    <p class="text-slate-400">العنوان المسجل الحالي (DET License)</p>
+                    <p class="font-bold text-navy-900">مكتب S01-21، الممزر، ديرة، دبي، الإمارات العربية المتحدة</p>
+                    <p class="font-en text-slate-600">Office S01-21, Al Mamzar, Deira, Dubai, UAE</p>
+                  </div>
+                  <button type="button" data-copy="Office S01-21, Al Mamzar, Deira, Dubai, United Arab Emirates" class="copy-btn rounded-lg bg-slate-100 px-2.5 py-1 font-bold text-navy-900 hover:bg-gold-100">نسخ</button>
+                </div>
+                <div class="flex items-center justify-between py-2.5">
+                  <div>
+                    <p class="text-slate-400">المقر السابق (واحة دبي للسيليكون)</p>
+                    <p class="font-semibold text-slate-700">مكتب 2510، الطابق 25، برج إس آي تي، ند حصة، واحة دبي للسيليكون</p>
+                  </div>
+                  <button type="button" data-copy="Office 2510, 25th Floor, SIT Tower, Nadd Hessa, Dubai Silicon Oasis, Dubai, UAE" class="copy-btn rounded-lg bg-slate-100 px-2.5 py-1 font-bold text-navy-900 hover:bg-gold-100">نسخ</button>
+                </div>
+                <div class="flex items-center justify-between py-2.5">
+                  <div>
+                    <p class="text-slate-400">ص.ب / الهاتف / الموقع / البريد</p>
+                    <p class="font-mono font-bold text-navy-900">P.O. Box 341740 • +971 4 320 8870 • www.ghpetro.me</p>
+                    <p class="font-mono text-gold-700">info@ghpetro.me • sales@ghpetro.me</p>
+                  </div>
+                  <button type="button" data-copy="P.O. Box 341740, Dubai, UAE | Tel: +971 4 320 8870 | www.ghpetro.me | info@ghpetro.me" class="copy-btn rounded-lg bg-slate-100 px-2.5 py-1 font-bold text-navy-900 hover:bg-gold-100">نسخ</button>
+                </div>
+                <div class="flex items-center justify-between py-2.5">
+                  <div>
+                    <p class="text-slate-400">مرجع KYC لدى بنك المشرق (Mashreq Bank)</p>
+                    <p class="font-mono font-bold text-emerald-700">MD-KYC-DEMO-REF-****-L1</p>
+                  </div>
+                  <button type="button" data-copy="MD-KYC-DEMO-REF-****-L1" class="copy-btn rounded-lg bg-slate-100 px-2.5 py-1 font-bold text-navy-900 hover:bg-gold-100">نسخ</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ownership, Activities & Signatory -->
+            <div class="space-y-4">
+              <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+                <h3 class="border-b border-slate-100 pb-3 text-sm font-extrabold text-navy-900">هيكل الملكية والمفوض بالتوقيع (Ownership &amp; UBO)</h3>
+                <div class="mt-3 space-y-3 text-xs">
+                  <div class="rounded-xl border border-gold-300 bg-gold-50/50 p-3.5">
+                    <div class="flex items-center justify-between">
+                      <span class="font-extrabold text-navy-900">المهندس [اسم المفوض بالتوقيع] (51%)</span>
+                      <button type="button" data-copy="Eng. [Signatory Name] | EID: 784-****-*******-*" class="copy-btn rounded bg-white px-2 py-0.5 font-bold text-navy-900 shadow-2xs">نسخ</button>
+                    </div>
+                    <p class="font-en font-semibold text-slate-700">Eng. [Signatory Name] — Executive Director &amp; GM</p>
+                    <p class="mt-1 text-slate-600">الجنسية: المملكة العربية السعودية | الهوية الإماراتية: <span class="font-mono font-bold">784-****-*******-*</span></p>
+                  </div>
+                  <div class="rounded-xl border border-slate-200 bg-slate-50 p-3.5">
+                    <span class="font-extrabold text-navy-900">الشريك الثاني (49%) — [Partner Two Name]</span>
+                    <p class="mt-0.5 text-slate-600">شريك مسجل بموجب الرخصة التجارية وعقد التأسيس.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+                <h3 class="border-b border-slate-100 pb-3 text-sm font-extrabold text-navy-900">الأنشطة التجارية المرخصة (DET Activities)</h3>
+                <ul class="mt-3 space-y-2 text-xs">
+                  <li class="flex items-center justify-between rounded-lg bg-slate-50 px-3 py-2 font-bold text-navy-900">
+                    <span>١. تجارة مشتقات تكرير النفط خارج الدولة</span>
+                    <span class="font-en text-slate-500">Refined Oil Products Trading Abroad</span>
+                  </li>
+                  <li class="flex items-center justify-between rounded-lg bg-slate-50 px-3 py-2 font-bold text-navy-900">
+                    <span>٢. تجارة وقود الديزل</span>
+                    <span class="font-en text-slate-500">Diesel Fuel Trading</span>
+                  </li>
+                  <li class="flex items-center justify-between rounded-lg bg-slate-50 px-3 py-2 font-bold text-navy-900">
+                    <span>٣. تجارة الزيوت والشحوم</span>
+                    <span class="font-en text-slate-500">Lubricants &amp; Grease Trading</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- MODULE 3: ALL SPECIALIZED PETROLEUM & FINANCIAL CALCULATORS               -->
+        <!-- ========================================================================= -->
+        <section id="mod-calculators" class="hub-module hidden space-y-6">
+          <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+            <span class="text-[10px] font-extrabold uppercase tracking-wider text-gold-600">PETROLEUM &amp; FINANCIAL ENGINEERING SUITE</span>
+            <h2 class="text-lg font-extrabold text-navy-900">جميع الحاسبات البترولية والتجارية والمالية لـ GHPetro</h2>
+            <p class="mt-0.5 text-xs text-slate-500">أدوات حسابية فورية دقيقة لتحويل الكميات بالكثافة، احتساب هوامش الصفقات (CIF/FOB)، سعة الحاويات والبراميل، والضرائب الإماراتية.</p>
+          </div>
+
+          <div class="grid gap-6 lg:grid-cols-2">
+
+            <!-- CALCULATOR 1: Petroleum Unit & Density Converter -->
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+              <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <h3 class="text-sm font-extrabold text-navy-900">١. حاسبة التحويل والكثافة البترولية (Liters ↔ MT ↔ BBL)</h3>
+                <span class="rounded-md bg-gold-50 px-2 py-0.5 text-[10px] font-bold text-gold-700">SG / API</span>
+              </div>
+
+              <!-- Product Density Presets -->
+              <div class="mt-3">
+                <label class="block text-[11px] font-bold text-slate-500">اختر نوع المنتج لضبط الكثافة النوعية (Specific Gravity):</label>
+                <div class="mt-1.5 flex flex-wrap gap-1.5">
+                  <button type="button" data-sg="0.840" class="sg-preset rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-bold text-slate-700 hover:border-gold-500">Gasoil 10ppm (0.84)</button>
+                  <button type="button" data-sg="0.870" class="sg-preset rounded-lg border-2 border-gold-500 bg-gold-50 px-2.5 py-1 text-[11px] font-extrabold text-navy-900">Circulating Oil (0.87)</button>
+                  <button type="button" data-sg="0.885" class="sg-preset rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-bold text-slate-700 hover:border-gold-500">Base Oil SN500 (0.885)</button>
+                  <button type="button" data-sg="0.960" class="sg-preset rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-bold text-slate-700 hover:border-gold-500">Fuel Oil 380CST (0.96)</button>
+                </div>
+              </div>
+
+              <div class="mt-3 grid grid-cols-3 gap-2.5 text-xs">
+                <div>
+                  <label class="block font-bold text-slate-600">الكمية (Value)</label>
+                  <input id="conv-val" type="number" value="90000" step="any" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 font-mono font-bold text-navy-900 focus:border-gold-500 focus:outline-none" />
+                </div>
+                <div>
+                  <label class="block font-bold text-slate-600">الوحدة (Unit)</label>
+                  <select id="conv-unit" class="mt-1 w-full rounded-xl border border-slate-300 px-2.5 py-2 font-bold text-navy-900 focus:border-gold-500 focus:outline-none">
+                    <option value="L" selected>لتر (Liters)</option>
+                    <option value="MT">طن متري (MT)</option>
+                    <option value="BBL">برميل (US BBL)</option>
+                    <option value="GAL">جالون (US Gal)</option>
+                    <option value="M3">متر مكعب (m³)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block font-bold text-slate-600">الكثافة (SG)</label>
+                  <input id="conv-sg" type="number" value="0.870" step="0.001" min="0.5" max="1.2" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 font-mono font-bold text-gold-700 focus:border-gold-500 focus:outline-none" />
+                </div>
+              </div>
+
+              <div class="mt-4 grid grid-cols-2 gap-2.5 rounded-xl border border-navy-800 bg-navy-900 p-3.5 text-xs text-white sm:grid-cols-3">
+                <div>
+                  <p class="text-[10px] text-slate-400">الوزن بالطن المتري (MT)</p>
+                  <p id="res-mt" class="font-mono text-sm font-extrabold text-gold-400">78.30 MT</p>
+                </div>
+                <div>
+                  <p class="text-[10px] text-slate-400">الحجم باللتر (Liters)</p>
+                  <p id="res-liters" class="font-mono text-sm font-extrabold text-white">90,000 L</p>
+                </div>
+                <div>
+                  <p class="text-[10px] text-slate-400">البراميل (US Barrels)</p>
+                  <p id="res-bbl" class="font-mono text-sm font-extrabold text-gold-400">566.08 BBL</p>
+                </div>
+                <div>
+                  <p class="text-[10px] text-slate-400">الجالون الأمريكي (US Gal)</p>
+                  <p id="res-gal" class="font-mono text-xs font-bold text-slate-200">23,775.48 GAL</p>
+                </div>
+                <div>
+                  <p class="text-[10px] text-slate-400">المتر المكعب (m³)</p>
+                  <p id="res-m3" class="font-mono text-xs font-bold text-slate-200">90.00 m³</p>
+                </div>
+                <div>
+                  <p class="text-[10px] text-slate-400">معامل API Gravity</p>
+                  <p id="res-api" class="font-mono text-xs font-bold text-emerald-400">31.14 °API</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- CALCULATOR 2: Deal Margin, CIF/FOB & Commission Calculator -->
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+              <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <h3 class="text-sm font-extrabold text-navy-900">٢. حاسبة هوامش الصفقات والتكاليف والعمولات</h3>
+                <span class="font-mono text-[10px] font-bold text-slate-500">1 USD = 3.6725 AED</span>
+              </div>
+
+              <div class="mt-3 grid grid-cols-2 gap-2.5 text-xs sm:grid-cols-3">
+                <div>
+                  <label class="block font-bold text-slate-600">الكمية (Qty)</label>
+                  <input id="m-qty" type="number" value="90000" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 font-mono font-bold" />
+                </div>
+                <div>
+                  <label class="block font-bold text-slate-600">سعر الشراء / وحدة</label>
+                  <input id="m-buy" type="number" value="4.20" step="0.01" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 font-mono font-bold" />
+                </div>
+                <div>
+                  <label class="block font-bold text-slate-600">سعر البيع / وحدة</label>
+                  <input id="m-sell" type="number" value="4.85" step="0.01" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 font-mono font-bold" />
+                </div>
+                <div>
+                  <label class="block font-bold text-slate-600">العملة (Currency)</label>
+                  <select id="m-curr" class="mt-1 w-full rounded-xl border border-slate-300 px-2.5 py-2 font-bold">
+                    <option value="AED" selected>درهم إماراتي (AED)</option>
+                    <option value="USD">دولار أمريكي (USD)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block font-bold text-slate-600">النقل والفحص (Logistics/SGS)</label>
+                  <input id="m-costs" type="number" value="14500" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 font-mono font-bold" />
+                </div>
+                <div>
+                  <label class="block font-bold text-slate-600">عمولة الوسيط (%)</label>
+                  <input id="m-comm" type="number" value="1.5" step="0.1" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 font-mono font-bold" />
+                </div>
+              </div>
+
+              <div class="mt-4 grid grid-cols-2 gap-2.5 rounded-xl border border-gold-300 bg-gold-50/70 p-3.5 text-xs sm:grid-cols-3">
+                <div>
+                  <p class="text-[10px] font-bold text-slate-500">إجمالي التكلفة (Total Cost)</p>
+                  <p id="m-res-cost" class="font-mono text-sm font-extrabold text-navy-900">AED 399,048</p>
+                </div>
+                <div>
+                  <p class="text-[10px] font-bold text-slate-500">إجمالي المبيعات (Revenue)</p>
+                  <p id="m-res-rev" class="font-mono text-sm font-extrabold text-navy-900">AED 436,500</p>
+                </div>
+                <div>
+                  <p class="text-[10px] font-bold text-slate-500">صافي الربح (Net Profit)</p>
+                  <p id="m-res-net" class="font-mono text-sm font-extrabold text-emerald-700">AED 37,452</p>
+                </div>
+                <div>
+                  <p class="text-[10px] font-bold text-slate-500">صافي الربح بالدولار (USD)</p>
+                  <p id="m-res-usd" class="font-mono text-xs font-extrabold text-navy-900">$10,198.03</p>
+                </div>
+                <div>
+                  <p class="text-[10px] font-bold text-slate-500">نسبة الهامش (Margin %)</p>
+                  <p id="m-res-pct" class="font-mono text-xs font-extrabold text-gold-700">8.58%</p>
+                </div>
+                <div>
+                  <p class="text-[10px] font-bold text-slate-500">الربح لكل وحدة (Unit Profit)</p>
+                  <p id="m-res-unit" class="font-mono text-xs font-extrabold text-emerald-700">AED 0.416 / unit</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- CALCULATOR 3: Tank / Drum / IBC Container Load Calculator -->
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+              <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <h3 class="text-sm font-extrabold text-navy-900">٣. حاسبة البراميل والحاويات والخزانات (Container &amp; Drum Load)</h3>
+                <span class="rounded-md bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-700">Logistics</span>
+              </div>
+
+              <div class="mt-3 grid grid-cols-3 gap-2.5 text-xs">
+                <div>
+                  <label class="block font-bold text-slate-600">نوع التعبئة / الحاوية</label>
+                  <select id="c-type" class="mt-1 w-full rounded-xl border border-slate-300 px-2.5 py-2 font-bold">
+                    <option value="208" selected>برميل حديد (208 L Drum)</option>
+                    <option value="1000">خزان IBC (1,000 L Tote)</option>
+                    <option value="16640">حاوية 20 قدم (80 براميل)</option>
+                    <option value="20000">حاوية 20 قدم (20 IBC)</option>
+                    <option value="25000">حاوية صهريج ISO Tank (25,000 L)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block font-bold text-slate-600">العدد (Count)</label>
+                  <input id="c-count" type="number" value="80" min="1" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 font-mono font-bold" />
+                </div>
+                <div>
+                  <label class="block font-bold text-slate-600">الكثافة (SG)</label>
+                  <input id="c-sg" type="number" value="0.87" step="0.01" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 font-mono font-bold" />
+                </div>
+              </div>
+
+              <div class="mt-4 grid grid-cols-3 gap-2.5 rounded-xl border border-slate-200 bg-slate-50 p-3.5 text-xs">
+                <div>
+                  <p class="text-[10px] font-bold text-slate-500">إجمالي الحجم (Total Volume)</p>
+                  <p id="c-res-vol" class="font-mono text-sm font-extrabold text-navy-900">16,640 L</p>
+                </div>
+                <div>
+                  <p class="text-[10px] font-bold text-slate-500">الوزن الصافي (Net Weight)</p>
+                  <p id="c-res-wt" class="font-mono text-sm font-extrabold text-gold-700">14.48 MT</p>
+                </div>
+                <div>
+                  <p class="text-[10px] font-bold text-slate-500">حاويات 20ft المطلوبة</p>
+                  <p id="c-res-fcl" class="font-mono text-sm font-extrabold text-emerald-700">1.00 × 20' FCL</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- CALCULATOR 4: UAE Corporate Tax (9%) & VAT (5%) Estimator -->
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+              <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <h3 class="text-sm font-extrabold text-navy-900">٤. حاسبة ضريبة الشركات (9%) وضريبة القيمة المضافة (5% UAE)</h3>
+                <span class="rounded-md bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-700">FTA UAE</span>
+              </div>
+
+              <div class="mt-3 grid grid-cols-2 gap-2.5 text-xs">
+                <div>
+                  <label class="block font-bold text-slate-600">قيمة الفاتورة / الربح السنوي (AED)</label>
+                  <input id="t-amount" type="number" value="550000" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 font-mono font-bold" />
+                </div>
+                <div>
+                  <label class="block font-bold text-slate-600">نوع المعاملة الضريبية</label>
+                  <select id="t-mode" class="mt-1 w-full rounded-xl border border-slate-300 px-2.5 py-2 font-bold">
+                    <option value="vat5" selected>توريد محلي داخل الإمارات (5% VAT)</option>
+                    <option value="vat0">تصدير / خارج الدولة (0% Zero-Rated)</option>
+                    <option value="corp9">صافي ربح سنوي (9% Corporate Tax &gt; 375k)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="mt-4 grid grid-cols-3 gap-2.5 rounded-xl border border-slate-200 bg-slate-50 p-3.5 text-xs">
+                <div>
+                  <p class="text-[10px] font-bold text-slate-500">المبلغ الخاضع (Taxable Base)</p>
+                  <p id="t-res-base" class="font-mono text-sm font-extrabold text-navy-900">AED 550,000</p>
+                </div>
+                <div>
+                  <p class="text-[10px] font-bold text-slate-500">قيمة الضريبة (Tax Amount)</p>
+                  <p id="t-res-tax" class="font-mono text-sm font-extrabold text-rose-600">AED 27,500</p>
+                </div>
+                <div>
+                  <p class="text-[10px] font-bold text-slate-500">الإجمالي النهائي (Total / Net)</p>
+                  <p id="t-res-total" class="font-mono text-sm font-extrabold text-emerald-700">AED 577,500</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- MODULE 4: MARKET INTELLIGENCE, BENCHMARK PRICES, NEWS & RECOMMENDATIONS   -->
+        <!-- ========================================================================= -->
+        <section id="mod-markets" class="hub-module hidden space-y-6">
+
+          <!-- Editable Market Benchmark Simulator -->
+          <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3.5">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="rounded-full bg-amber-100 px-2.5 py-0.5 text-[10px] font-extrabold text-amber-800">Reference Benchmark &amp; Scenario Simulator</span>
+                  <h2 class="text-base font-extrabold text-navy-900 sm:text-lg">مؤشرات وأسعار السوق المرجعية (قابلة للتعديل الفوري حسب تسعيرة اليوم)</h2>
+                </div>
+                <p class="mt-0.5 text-xs text-slate-500">يتم حفظ أي تعديل تدخله على الأسعار المرجعية أدناه تلقائياً في متصفحك لاستخدامه في تسعير الصفقات.</p>
+              </div>
+              <button type="button" id="reset-prices-btn" class="rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100">استعادة الأسعار المرجعية</button>
+            </div>
+
+            <div id="market-benchmarks-grid" class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5"></div>
+          </div>
+
+          <!-- Market News & Strategic Recommendations -->
+          <div class="grid gap-6 lg:grid-cols-12">
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs lg:col-span-8">
+              <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                <h3 class="text-base font-extrabold text-navy-900">أخبار وتوصيات أسواق الطاقة والزيوت (UAE &amp; GCC Intelligence)</h3>
+                <div class="flex flex-wrap gap-1">
+                  <button type="button" data-mtag="all" class="m-tag-btn rounded-lg bg-navy-900 px-2.5 py-1 text-[11px] font-bold text-white">الكل</button>
+                  <button type="button" data-mtag="opportunity" class="m-tag-btn rounded-lg bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-600">فرص تجارية</button>
+                  <button type="button" data-mtag="pricing" class="m-tag-btn rounded-lg bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-600">استراتيجية التسعير</button>
+                  <button type="button" data-mtag="risk" class="m-tag-btn rounded-lg bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-600">تنبيهات المخاطر</button>
+                </div>
+              </div>
+
+              <div id="market-news-list" class="mt-4 space-y-3 text-xs"></div>
+            </div>
+
+            <!-- Add Daily Market Note -->
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs lg:col-span-4">
+              <h3 class="border-b border-slate-100 pb-3 text-sm font-extrabold text-navy-900">إضافة ملاحظة سوقية أو تسعيرة مورد</h3>
+              <form id="add-market-note-form" class="mt-3 space-y-3 text-xs">
+                <div>
+                  <label class="block font-bold text-slate-600">العنوان / المورد</label>
+                  <input id="mn-title" required type="text" placeholder="مثال: تحديث أسعار أدنوك للزيوت الصناعية" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2" />
+                </div>
+                <div>
+                  <label class="block font-bold text-slate-600">التصنيف</label>
+                  <select id="mn-tag" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 font-bold">
+                    <option value="opportunity">فرصة تجارية (Opportunity)</option>
+                    <option value="pricing">استراتيجية تسعير (Pricing)</option>
+                    <option value="risk">تنبيه مخاطر / امتثال (Risk Alert)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block font-bold text-slate-600">التفاصيل والتوصية</label>
+                  <textarea id="mn-body" required rows="4" placeholder="اكتب تفاصيل السعر أو التوصية لحفظها في سجل السوق..." class="mt-1 w-full rounded-xl border border-slate-300 p-3"></textarea>
+                </div>
+                <button type="submit" class="w-full rounded-xl bg-navy-900 py-2.5 font-extrabold text-white hover:bg-navy-800">حفظ التوصية في السجل</button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- MODULE 5: TRADERS, SUPPLIERS, COUNTERPARTIES & CRM DIRECTORY              -->
+        <!-- ========================================================================= -->
+        <section id="mod-crm" class="hub-module hidden space-y-6">
+          <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+            <div class="flex flex-col justify-between gap-3 border-b border-slate-100 pb-4 sm:flex-row sm:items-center">
+              <div>
+                <span class="text-[10px] font-extrabold uppercase tracking-wider text-gold-600">COUNTERPARTIES, SUPPLIERS &amp; BANKING CRM</span>
+                <h2 class="text-lg font-extrabold text-navy-900">دليل التجار والموردين والأطراف وجهات الاتصال المعتمدة</h2>
+              </div>
+              <button type="button" id="open-add-crm-btn" class="rounded-xl bg-navy-900 px-4 py-2 text-xs font-extrabold text-white hover:bg-navy-800">
+                + إضافة مورد / عميل / طرف جديد
+              </button>
+            </div>
+
+            <!-- Filter Bar -->
+            <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
+              <input id="crm-search-input" type="text" placeholder="ابحث بالاسم، الشركة، المنتج، أو المدينة..." class="w-full rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2 text-xs sm:w-80 focus:border-gold-500 focus:bg-white focus:outline-none" />
+              <div class="flex flex-wrap gap-1.5 text-xs">
+                <button type="button" data-crmcat="all" class="crm-cat-btn rounded-lg bg-navy-900 px-3 py-1.5 font-bold text-white">الكل</button>
+                <button type="button" data-crmcat="Supplier" class="crm-cat-btn rounded-lg bg-slate-100 px-3 py-1.5 font-semibold text-slate-700">الموردون والمصافي</button>
+                <button type="button" data-crmcat="Buyer" class="crm-cat-btn rounded-lg bg-slate-100 px-3 py-1.5 font-semibold text-slate-700">المشترون والتجار</button>
+                <button type="button" data-crmcat="Logistics" class="crm-cat-btn rounded-lg bg-slate-100 px-3 py-1.5 font-semibold text-slate-700">التخزين والفحص (SGS)</button>
+                <button type="button" data-crmcat="Banking" class="crm-cat-btn rounded-lg bg-slate-100 px-3 py-1.5 font-semibold text-slate-700">البنوك والامتثال</button>
+              </div>
+            </div>
+
+            <div id="crm-cards-grid" class="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-3"></div>
+          </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- MODULE 6: SMART AI WRITING STUDIO, TEMPLATES & LIVE A4 LETTERHEAD         -->
+        <!-- ========================================================================= -->
+        <section id="mod-studio" class="hub-module hidden space-y-6">
+
+          <!-- Grammarly & QuillBot Writing Assistant -->
+          <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-xs">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3.5">
+              <div>
+                <span class="rounded-full bg-gold-100 px-2.5 py-0.5 text-[10px] font-extrabold text-gold-700">Grammarly &amp; QuillBot AI Engine</span>
+                <h2 class="mt-1 text-base font-extrabold text-navy-900 sm:text-lg">استوديو الصياغة الذكية والتصحيح اللغوي والترجمة التجارية</h2>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <button type="button" id="st-sample-ar" class="rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-bold text-navy-900 hover:bg-gold-50">تجربة نص عربي (بأخطاء)</button>
+                <button type="button" id="st-sample-en" class="rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-bold text-navy-900 hover:bg-gold-50">Test English Draft</button>
+              </div>
+            </div>
+
+            <div class="mt-4 grid gap-4 lg:grid-cols-2">
+              <!-- Input -->
+              <div class="space-y-2.5">
+                <label class="block text-xs font-extrabold text-navy-900">المسودة الأصلية (عربي أو إنجليزي)</label>
+                <textarea id="st-input" rows="6" placeholder="اكتب أو الصق مسودة الخطاب هنا للتصحيح الإملائي والنحوي وإعادة الصياغة التنفيذية..." class="w-full rounded-xl border border-slate-300 bg-slate-50/70 p-3 text-xs leading-relaxed focus:border-gold-500 focus:bg-white focus:outline-none sm:text-sm"></textarea>
+
+                <div class="flex flex-wrap gap-1.5">
+                  <button type="button" id="st-proofread-btn" class="rounded-xl bg-navy-900 px-3.5 py-2 text-xs font-extrabold text-white hover:bg-navy-800">✓ تصحيح وتدقيق لغوي</button>
+                  <button type="button" data-rw="formal" class="st-rw-btn rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-800 hover:border-navy-900">صياغة تنفيذية</button>
+                  <button type="button" data-rw="concise" class="st-rw-btn rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-800 hover:border-navy-900">اختصار مباشر</button>
+                  <button type="button" data-rw="diplomatic" class="st-rw-btn rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-800 hover:border-navy-900">أسلوب دبلوماسي</button>
+                  <button type="button" id="st-translate-btn" class="rounded-xl border border-gold-400 bg-gold-50 px-3 py-2 text-xs font-extrabold text-navy-900 hover:bg-gold-100">ترجمة AR ↔ EN</button>
+                </div>
+              </div>
+
+              <!-- Output -->
+              <div class="space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-extrabold text-navy-900">الصياغة المصححة والجاهزة</span>
+                  <div class="flex gap-2">
+                    <button type="button" id="st-copy-btn" class="rounded-lg border border-slate-200 px-2.5 py-1 text-[11px] font-bold text-slate-700 hover:bg-slate-100">نسخ</button>
+                    <button type="button" id="st-to-lh-btn" class="rounded-lg bg-gold-500 px-3 py-1 text-[11px] font-extrabold text-navy-900 hover:bg-gold-400">نقل إلى الليتر هيد ↓</button>
+                  </div>
+                </div>
+                <textarea id="st-output" rows="6" placeholder="ستظهر النتيجة المحسنة هنا..." class="w-full rounded-xl border border-emerald-200 bg-emerald-50/20 p-3 text-xs leading-relaxed focus:border-emerald-500 focus:bg-white focus:outline-none sm:text-sm"></textarea>
+                <div id="st-insights" class="space-y-1.5 text-[11px]"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ready-Made Templates & A4 Letterhead Generator -->
+          <div class="grid gap-6 xl:grid-cols-12">
+            <!-- Controls & Templates (5 cols) -->
+            <div class="space-y-4 xl:col-span-5">
+              <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-xs">
+                <h3 class="text-xs font-extrabold uppercase text-navy-900">١. اختر قالباً جاهزاً (Ready Corporate Templates)</h3>
+                <div id="tpl-buttons-grid" class="mt-2.5 grid grid-cols-2 gap-1.5 text-xs"></div>
+              </div>
+
+              <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-xs">
+                <h3 class="text-xs font-extrabold uppercase text-navy-900">٢. الخطوط والتصميم (Typography &amp; Theme)</h3>
+                <div class="mt-2.5 grid grid-cols-2 gap-1.5 text-xs">
+                  <button type="button" data-font="pair-cairo-inter" class="font-pair-btn rounded-xl border-2 border-gold-500 bg-gold-50 p-2 text-start font-bold text-navy-900">Cairo + Inter (عصري)</button>
+                  <button type="button" data-font="pair-ibm-jakarta" class="font-pair-btn rounded-xl border border-slate-200 bg-white p-2 text-start font-bold text-slate-700">IBM Plex + Jakarta</button>
+                  <button type="button" data-font="pair-tajawal-dm" class="font-pair-btn rounded-xl border border-slate-200 bg-white p-2 text-start font-bold text-slate-700">Tajawal + DM Sans</button>
+                  <button type="button" data-font="pair-amiri-playfair" class="font-pair-btn rounded-xl border border-slate-200 bg-white p-2 text-start font-bold text-slate-700">Amiri + Playfair</button>
+                </div>
+              </div>
+
+              <div class="space-y-2.5 rounded-2xl border border-slate-200 bg-white p-4 shadow-xs text-xs">
+                <div class="flex items-center justify-between">
+                  <h3 class="font-extrabold uppercase text-navy-900">٣. بيانات المستند والطباعة</h3>
+                  <label class="inline-flex cursor-pointer items-center gap-1.5 font-bold">
+                    <input id="lh-stamp-toggle" type="checkbox" checked class="h-4 w-4 accent-navy-900" />
+                    <span>الختم والتوقيع</span>
+                  </label>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <input id="lh-ref" type="text" value="LOI-GH-ADNOC-2026-001" class="rounded-xl border border-slate-300 px-3 py-2 font-mono font-bold" />
+                  <input id="lh-date" type="text" value="18 November 2026 | 18 نوفمبر 2026" class="rounded-xl border border-slate-300 px-3 py-2 font-semibold" />
+                </div>
+                <input id="lh-recipient" type="text" value="السادة / شركة أدنوك للتوزيع المحترمين (ADNOC Distribution)" class="w-full rounded-xl border border-slate-300 px-3 py-2 font-bold" />
+                <input id="lh-subject" type="text" value="خطاب نوايا لشراء 90,000 لتر من زيوت ADNOC Circulating Oil" class="w-full rounded-xl border border-slate-300 px-3 py-2 font-bold text-navy-900" />
+                <textarea id="lh-body" rows="7" class="w-full rounded-xl border border-slate-300 p-3 leading-relaxed"></textarea>
+
+                <div class="grid grid-cols-2 gap-2 pt-1">
+                  <button type="button" onclick="window.print()" class="rounded-xl bg-navy-900 py-2.5 font-extrabold text-white hover:bg-navy-800">طباعة / حفظ PDF</button>
+                  <button type="button" id="lh-download-html" class="rounded-xl border border-gold-400 bg-gold-50 py-2.5 font-extrabold text-navy-900 hover:bg-gold-100">تحميل ملف HTML</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live A4 Preview (7 cols) -->
+            <div class="xl:col-span-7">
+              <div class="overflow-x-auto rounded-2xl border border-slate-300 bg-slate-200/80 p-3 sm:p-5">
+                <div id="a4-print-canvas" class="lh-preview-root pair-cairo-inter mx-auto flex min-h-[297mm] w-full max-w-[210mm] flex-col justify-between bg-white shadow-2xl">
+
+                  <!-- Official Golden Horse Letterhead Header -->
+                  <div style="background: linear-gradient(135deg, #09192f 0%, #0f294a 100%); color: #fff; padding: 20px 30px; border-bottom: 4px solid #c59b27;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+                      <div style="text-align:right; direction:rtl; flex:1;">
+                        <div style="font-size:14.5px; font-weight:800; line-height:1.3;">جولدن هورس لتجارة مشتقات تكرير النفط خارج الدولة ش.ذ.م.م</div>
+                        <div style="font-size:11px; font-weight:700; color:#e2c265; margin-top:2px;">جي إتش بترو • جولدن هورس للبترول</div>
+                      </div>
+                      <div style="width:48px; height:48px; border-radius:50%; border:1.5px solid #c59b27; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.05);">
+                        <span style="font-weight:800; color:#e2c265; font-size:14px;">GH</span>
+                      </div>
+                      <div class="lh-en-text" style="text-align:left; direction:ltr; flex:1;">
+                        <div style="font-size:12px; font-weight:800; line-height:1.25; text-transform:uppercase;">Golden Horse Trading Refined Oil Products Abroad L.L.C.</div>
+                        <div style="font-size:9.5px; font-weight:700; color:#e2c265; margin-top:3px; letter-spacing:0.6px;">GHPETRO • GOLDEN HORSE PETROLEUM</div>
+                      </div>
+                    </div>
+                    <div style="margin-top:9px; padding-top:6px; border-top:1px solid rgba(255,255,255,0.16); display:flex; justify-content:space-between; font-size:10px; color:#dce5f2;">
+                      <span>رخصة تجارية رقم: <strong style="color:#e2c265;">778861</strong> | غرفة دبي: <strong style="color:#e2c265;">286926</strong></span>
+                      <span class="lh-en-text">DET License: <strong style="color:#e2c265;">778861</strong> | Dubai, U.A.E.</span>
+                    </div>
+                  </div>
+
+                  <!-- Document Content -->
+                  <div class="flex-1 px-8 py-6">
+                    <div class="flex justify-between border-b border-slate-200 pb-2.5 text-xs">
+                      <div><span class="font-bold text-slate-500">المرجع / Ref:</span> <span id="out-ref" class="lh-en-text font-mono font-extrabold text-navy-900"></span></div>
+                      <div><span class="font-bold text-slate-500">التاريخ / Date:</span> <span id="out-date" class="font-semibold text-slate-800"></span></div>
+                    </div>
+
+                    <div class="mt-4">
+                      <p class="text-[11px] font-bold text-slate-400">إلى / To:</p>
+                      <p id="out-recipient" class="mt-0.5 whitespace-pre-line text-sm font-extrabold text-navy-900"></p>
+                    </div>
+
+                    <div class="mt-4 rounded-lg border-s-4 border-gold-500 bg-slate-50 px-4 py-2">
+                      <p class="text-[10px] font-extrabold text-gold-700">الموضوع / SUBJECT</p>
+                      <p id="out-subject" class="mt-0.5 text-sm font-extrabold text-navy-900"></p>
+                    </div>
+
+                    <div id="out-body" class="mt-5 whitespace-pre-line text-[13px] leading-7 text-slate-800"></div>
+
+                    <!-- Signature & Stamp -->
+                    <div class="mt-10 flex items-end justify-between gap-6 border-t border-slate-200 pt-5">
+                      <div>
+                        <p class="text-xs font-bold text-slate-500">وتفضلوا بقبول فائق الاحترام والتقدير،،،</p>
+                        <p class="mt-1 text-xs font-extrabold text-navy-900">جولدن هورس لتجارة مشتقات تكرير النفط خارج الدولة ش.ذ.م.م</p>
+                        <p class="lh-en-text text-[11px] font-bold text-slate-600">Golden Horse Trading Refined Oil Products Abroad L.L.C.</p>
+                        <div class="mt-5">
+                          <p class="text-sm font-extrabold text-navy-900">المهندس [اسم المفوض بالتوقيع]</p>
+                          <p class="lh-en-text text-xs font-bold text-gold-700">Eng. [Signatory Name]</p>
+                          <p class="text-[11px] font-semibold text-slate-500">المدير التنفيذي والمدير العام | Executive Director &amp; General Manager</p>
+                        </div>
+                      </div>
+
+                      <div id="out-stamp-box" class="flex flex-col items-center">
+                        <div class="flex h-24 w-24 items-center justify-center rounded-full border-2 border-dashed border-navy-800/70 p-1.5 text-center">
+                          <div class="flex h-full w-full flex-col items-center justify-center rounded-full border border-gold-600/70 p-1">
+                            <span class="lh-en-text text-[7px] font-extrabold text-navy-900">GOLDEN HORSE TRADING</span>
+                            <span class="text-[6.5px] font-bold text-gold-700">جولدن هورس لتجارة النفط</span>
+                            <span class="lh-en-text my-0.5 rounded bg-navy-900 px-1 py-0.5 font-mono text-[6.5px] font-bold text-gold-400">LIC: 778861</span>
+                            <span class="lh-en-text text-[6.5px] font-extrabold text-navy-800">DUBAI - U.A.E.</span>
+                          </div>
+                        </div>
+                        <span class="mt-1 text-[9px] font-bold text-slate-400">الختم الرسمي المعتمد</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Official Golden Horse Letterhead Footer -->
+                  <div style="background:#09192f; color:#e4ebf5; border-top:3px solid #c59b27; padding:10px 30px; font-size:10px;">
+                    <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.14); padding-bottom:4px;">
+                      <span>المقر الرئيسي: مكتب S01-21، الممزر، ديرة، دبي، الإمارات • ص.ب: 341740</span>
+                      <span class="lh-en-text">Office S01-21, Al Mamzar, Deira, Dubai, UAE • P.O. Box 341740</span>
+                    </div>
+                    <div class="lh-en-text" style="display:flex; justify-content:space-between; padding-top:4px; color:#e2c265; font-weight:700;">
+                      <span>Tel: +971 4 320 8870 | Email: info@ghpetro.me • sales@ghpetro.me</span>
+                      <span>www.ghpetro.me</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ==================== MODALS (ADD DEAL & ADD CRM COUNTERPARTY) ==================== -->
+  <div id="modal-backdrop" class="fixed inset-0 z-50 hidden items-center justify-center bg-navy-950/60 p-4 backdrop-blur-xs">
+
+    <!-- Add Deal Modal -->
+    <form id="add-deal-form" class="hidden w-full max-w-md space-y-3 rounded-2xl bg-white p-5 text-xs shadow-2xl">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+        <h3 class="text-sm font-extrabold text-navy-900">إضافة صفقة تجارية جديدة</h3>
+        <button type="button" class="close-modal-btn text-slate-400 hover:text-navy-900">✕</button>
+      </div>
+      <div>
+        <label class="block font-bold text-slate-600">الطرف المقابل (المشتري / المورد)</label>
+        <input id="nd-party" required type="text" placeholder="مثال: ADNOC Distribution" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2" />
+      </div>
+      <div>
+        <label class="block font-bold text-slate-600">المنتج والكمية</label>
+        <input id="nd-product" required type="text" placeholder="مثال: 90,000 L ADNOC Circulating Oil" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2" />
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <div>
+          <label class="block font-bold text-slate-600">قيمة الصفقة (AED)</label>
+          <input id="nd-value" required type="number" value="436500" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 font-mono font-bold" />
+        </div>
+        <div>
+          <label class="block font-bold text-slate-600">الربح المتوقع (AED)</label>
+          <input id="nd-margin" required type="number" value="37450" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 font-mono font-bold" />
+        </div>
+      </div>
+      <button type="submit" class="w-full rounded-xl bg-navy-900 py-2.5 font-extrabold text-white hover:bg-navy-800">حفظ الصفقة في خط العمليات</button>
+    </form>
+
+    <!-- Add CRM Contact Modal -->
+    <form id="add-crm-form" class="hidden w-full max-w-md space-y-3 rounded-2xl bg-white p-5 text-xs shadow-2xl">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+        <h3 class="text-sm font-extrabold text-navy-900">إضافة مورد / عميل / طرف جديد</h3>
+        <button type="button" class="close-modal-btn text-slate-400 hover:text-navy-900">✕</button>
+      </div>
+      <div>
+        <label class="block font-bold text-slate-600">اسم الشركة أو الجهة</label>
+        <input id="nc-company" required type="text" placeholder="مثال: شركة الإمارات للوقود" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2" />
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <div>
+          <label class="block font-bold text-slate-600">الشخص المسؤول</label>
+          <input id="nc-person" required type="text" placeholder="الاسم والمنصب" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2" />
+        </div>
+        <div>
+          <label class="block font-bold text-slate-600">التصنيف</label>
+          <select id="nc-cat" class="mt-1 w-full rounded-xl border border-slate-300 px-2.5 py-2 font-bold">
+            <option value="Supplier">مورد / مصفاة (Supplier)</option>
+            <option value="Buyer">مشتري / تاجر (Buyer)</option>
+            <option value="Logistics">تخزين / فحص (Logistics)</option>
+            <option value="Banking">بنوك / امتثال (Banking)</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label class="block font-bold text-slate-600">الهاتف والبريد الإلكتروني والمدينة</label>
+        <input id="nc-contact" required type="text" placeholder="+971 50 000 0000 | email@company.ae | Dubai" class="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2" />
+      </div>
+      <button type="submit" class="w-full rounded-xl bg-navy-900 py-2.5 font-extrabold text-white hover:bg-navy-800">إضافة إلى دليل الأطراف</button>
+    </form>
+
+  </div>
+
+  <!-- Toast Banner -->
+  <div id="hub-toast" class="pointer-events-none fixed bottom-5 left-1/2 z-50 -translate-x-1/2 translate-y-4 rounded-xl bg-navy-900 px-4 py-2.5 text-xs font-bold text-white opacity-0 shadow-2xl transition-all duration-200"></div>
+
+  <script>
+    (function () {
+      const STORAGE_PREFIX = 'ghpetro_exec_hub_v1_';
+
+      // ==================== 0. HELPERS: HTML ESCAPING & SAFE STORAGE ====================
+      function esc(value) {
+        return String(value == null ? '' : value)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      function loadStore(key, fallback) {
+        try {
+          const raw = localStorage.getItem(STORAGE_PREFIX + key);
+          if (!raw) return fallback;
+          const parsed = JSON.parse(raw);
+          return Array.isArray(parsed) ? parsed : fallback;
+        } catch (e) {
+          return fallback;
+        }
+      }
+
+      // ==================== 1. TOAST & COPY ====================
+      const toastEl = document.getElementById('hub-toast');
+      let toastTimer = null;
+      function showToast(msg) {
+        toastEl.textContent = msg;
+        toastEl.classList.remove('opacity-0', 'translate-y-4');
+        toastEl.classList.add('opacity-100', 'translate-y-0');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toastEl.classList.add('opacity-0', 'translate-y-4');
+          toastEl.classList.remove('opacity-100', 'translate-y-0');
+        }, 2300);
+      }
+
+      function copyToClipboard(text) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+          showToast('تم النسخ: ' + text.slice(0, 45) + (text.length > 45 ? '...' : ''));
+        } catch (e) {
+          showToast('تعذر النسخ');
+        }
+        document.body.removeChild(ta);
+      }
+
+      document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.copy-btn');
+        if (btn) copyToClipboard(btn.getAttribute('data-copy') || '');
+      });
+
+      // ==================== 2. SIDEBAR & MODULE NAVIGATION ====================
+      const sidebar = document.getElementById('app-sidebar');
+      const backdrop = document.getElementById('mobile-sidebar-backdrop');
+      const navItems = document.querySelectorAll('.nav-item');
+      const modules = document.querySelectorAll('.hub-module');
+
+      function openSidebar() {
+        sidebar.classList.remove('-translate-x-full', 'rtl:translate-x-full');
+        backdrop.classList.remove('hidden');
+      }
+      function closeSidebar() {
+        sidebar.classList.add('-translate-x-full', 'rtl:translate-x-full');
+        backdrop.classList.add('hidden');
+      }
+
+      document.getElementById('open-sidebar-btn').addEventListener('click', openSidebar);
+      document.getElementById('close-sidebar-btn').addEventListener('click', closeSidebar);
+      backdrop.addEventListener('click', closeSidebar);
+
+      window.navigateToModule = function (modName) {
+        navItems.forEach((item) => {
+          const active = item.getAttribute('data-nav') === modName;
+          item.className = active
+            ? 'nav-item flex w-full items-center gap-3 rounded-xl bg-gold-500 px-3.5 py-2.5 text-start font-extrabold text-navy-900 shadow-xs transition'
+            : 'nav-item flex w-full items-center gap-3 rounded-xl px-3.5 py-2.5 text-start font-bold text-slate-300 hover:bg-white/5 hover:text-white transition';
+        });
+        modules.forEach((m) => m.classList.toggle('hidden', m.id !== `mod-${modName}`));
+        closeSidebar();
+      };
+
+      navItems.forEach((item) => {
+        item.addEventListener('click', () => navigateToModule(item.getAttribute('data-nav')));
+      });
+      navigateToModule('command');
+
+      // ==================== 3. LANGUAGE / DIRECTION TOGGLE ====================
+      const i18n = {
+        ar: {
+          sidebarSub: 'منظومة الموظف الواحد',
+          navCore: 'الوحدات التشغيلية',
+          navCommand: 'لوحة القيادة والصفقات والتوسع',
+          navProfile: 'الملف التعريفي وبيانات KYC',
+          navCalc: 'جميع الحاسبات البترولية والمالية',
+          navMarkets: 'أسعار وأخبار وتوصيات السوق',
+          navCrm: 'التجار والموردون والأطراف (CRM)',
+          navStudio: 'استوديو الصياغة والقوالب والليتر هيد',
+          topTitle: 'GHPetro Executive Hub | منظومة جولدن هورس الشاملة للموظف الواحد',
+          topSub: 'إدارة الصفقات، الحاسبات البترولية، ذكاء الأسواق، الموردون، والصياغة الرسمية في مكان واحد'
+        },
+        en: {
+          sidebarSub: 'Single-Employee Operating Hub',
+          navCore: 'OPERATIONAL MODULES',
+          navCommand: 'Executive Command, Deals & Growth',
+          navProfile: 'Corporate Profile & KYC Vault',
+          navCalc: 'Petroleum & Financial Calculators',
+          navMarkets: 'Market Benchmarks, News & Insights',
+          navCrm: 'Traders, Suppliers & CRM Directory',
+          navStudio: 'AI Writing, Templates & Letterhead',
+          topTitle: 'GHPetro Executive Hub | Golden Horse Single-Employee OS',
+          topSub: 'Deals Pipeline, Petroleum Calculators, Market Intelligence, Counterparties & Official Letterhead'
+        },
+        dual: {
+          sidebarSub: 'منظومة الموظف الواحد • Single Hub',
+          navCore: 'الوحدات / MODULES',
+          navCommand: 'القيادة والصفقات | Command & Deals',
+          navProfile: 'الملف التعريفي | KYC Profile',
+          navCalc: 'الحاسبات البترولية | Calculators',
+          navMarkets: 'أسعار وتوصيات السوق | Markets',
+          navCrm: 'الموردون والأطراف | CRM Directory',
+          navStudio: 'الصياغة والليتر هيد | AI & Templates',
+          topTitle: 'GHPetro Executive Hub | منظومة جولدن هورس الشاملة للموظف الواحد',
+          topSub: 'Bilingual Petroleum Trading & Executive Management Workspace • Dubai, UAE'
+        }
+      };
+
+      document.querySelectorAll('.lang-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const lang = btn.getAttribute('data-lang');
+          document.documentElement.setAttribute('dir', lang === 'en' ? 'ltr' : 'rtl');
+          document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'ar');
+          document.querySelectorAll('.lang-btn').forEach((b) => {
+            b.className = b === btn
+              ? 'lang-btn rounded-lg bg-navy-900 px-2.5 py-1 text-[11px] font-extrabold text-white transition'
+              : 'lang-btn rounded-lg px-2.5 py-1 text-[11px] font-bold text-slate-600 hover:text-navy-900 transition';
+          });
+          const dict = i18n[lang];
+          document.querySelectorAll('[data-i18n]').forEach((el) => {
+            const k = el.getAttribute('data-i18n');
+            if (dict[k]) el.textContent = dict[k];
+          });
+        });
+      });
+      document.querySelector('.lang-btn[data-lang="ar"]').click();
+
+      // ==================== 4. DEALS PIPELINE & DAILY SOP (PERSISTED) ====================
+      const DEFAULT_DEALS = [
+        { id: 'LOI-GH-ADNOC-2026-001', party: 'ADNOC Distribution (أدنوك للتوزيع)', product: '90,000 L ADNOC Circulating Oil (ISO VG 22/32/46/68)', value: 436500, margin: 37450, stage: 'LOI Issued' },
+        { id: 'DL-GH-2026-014', party: 'Gulf Petrochem FZE (جلف بتروكيم)', product: '500 MT Base Oil SN500 (FOB Hamriyah)', value: 1625000, margin: 88000, stage: 'FCO / Quote' },
+        { id: 'DL-GH-2026-011', party: 'Al Noor Lubricants LLC (النور للزيوت)', product: '250 Drums (52,000 L) Industrial Turbine Oil', value: 265000, margin: 24500, stage: 'ICPO / SPA' },
+        { id: 'DL-GH-2026-009', party: 'East Africa Energy Links (كينيا)', product: '2 × 20ft FCL (33,280 L) Automotive & Gear Lubricants', value: 198000, margin: 29700, stage: 'Inquiry' }
+      ];
+
+      const STAGES = ['Inquiry', 'LOI Issued', 'FCO / Quote', 'ICPO / SPA', 'Delivery / Settled'];
+      let deals = loadStore('deals', DEFAULT_DEALS);
+
+      function saveDeals() {
+        localStorage.setItem(STORAGE_PREFIX + 'deals', JSON.stringify(deals));
+        renderDeals();
+      }
+
+      function renderDeals() {
+        const container = document.getElementById('deals-list-container');
+        let totalVal = 0;
+        let totalMargin = 0;
+        deals.forEach((d) => {
+          totalVal += Number(d.value || 0);
+          totalMargin += Number(d.margin || 0);
+        });
+        document.getElementById('kpi-pipeline-val').textContent = 'AED ' + totalVal.toLocaleString();
+        document.getElementById('kpi-pipeline-sub').textContent = `${deals.length} صفقات نشطة في خط العمليات`;
+        document.getElementById('kpi-margin-val').textContent = 'AED ' + totalMargin.toLocaleString();
+
+        container.innerHTML = deals.map((d, idx) => `
+          <div class="rounded-xl border border-slate-200 bg-slate-50/70 p-4 transition hover:border-gold-500 hover:bg-white">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="font-mono text-[11px] font-extrabold text-gold-700">${esc(d.id)}</span>
+              <select data-deal-idx="${idx}" class="deal-stage-sel rounded-lg border border-slate-300 bg-white px-2.5 py-1 text-[11px] font-extrabold text-navy-900">
+                ${STAGES.map((st) => `<option value="${esc(st)}" ${d.stage === st ? 'selected' : ''}>${esc(st)}</option>`).join('')}
+              </select>
+            </div>
+            <h3 class="mt-1.5 text-sm font-extrabold text-navy-900">${esc(d.party)}</h3>
+            <p class="mt-0.5 text-xs text-slate-600">${esc(d.product)}</p>
+            <div class="mt-3 flex items-center justify-between border-t border-slate-200/80 pt-2 text-xs">
+              <span>القيمة: <strong class="font-mono text-navy-900">AED ${Number(d.value).toLocaleString()}</strong></span>
+              <span class="text-emerald-700">الربح: <strong class="font-mono">AED ${Number(d.margin).toLocaleString()}</strong></span>
+            </div>
+          </div>
+        `).join('');
+
+        document.querySelectorAll('.deal-stage-sel').forEach((sel) => {
+          sel.addEventListener('change', () => {
+            const i = Number(sel.getAttribute('data-deal-idx'));
+            deals[i].stage = sel.value;
+            saveDeals();
+            showToast(`تم تحديث مرحلة الصفقة إلى: ${sel.value}`);
+          });
+        });
+      }
+      renderDeals();
+
+      // Daily SOP Checklist
+      const DEFAULT_SOP = [
+        { text: 'مراجعة أسعار المشتقات المرجعية (Gasoil 10ppm & Base Oil) قبل إرسال أي عرض سعر', done: true },
+        { text: 'متابعة رد شركة أدنوك للتوزيع (Mr. Janom / Polaka) على خطاب النوايا LOI-GH-ADNOC-2026-001', done: true },
+        { text: 'التأكد من مطابقة بيانات المراسلات مع الرخصة التجارية 778861 وعنوان الممزر', done: true },
+        { text: 'تحديث ملف KYC ومستندات الامتثال المصرفي لدى بنك المشرق', done: false },
+        { text: 'إرسال عروض أسعار الزيوت الصناعية المعبأة إلى 3 عملاء تصدير في شرق أفريقيا', done: false },
+        { text: 'أرشفة الفواتير المبدئية وإشعارات التحويل البنكي في سجل الصفقات اليومي', done: false }
+      ];
+
+      let sopItems = loadStore('sop', DEFAULT_SOP);
+
+      function renderSop() {
+        const container = document.getElementById('sop-checklist-container');
+        const doneCount = sopItems.filter((x) => x.done).length;
+        document.getElementById('kpi-sop-progress').textContent = `${doneCount} / ${sopItems.length}`;
+        localStorage.setItem(STORAGE_PREFIX + 'sop', JSON.stringify(sopItems));
+
+        container.innerHTML = sopItems.map((item, idx) => `
+          <label class="flex cursor-pointer items-start gap-2.5 rounded-xl border ${item.done ? 'border-emerald-200 bg-emerald-50/40' : 'border-slate-200 bg-slate-50/60'} p-2.5 transition hover:border-gold-400">
+            <input type="checkbox" data-sop-idx="${idx}" ${item.done ? 'checked' : ''} class="sop-chk mt-0.5 h-4 w-4 shrink-0 accent-navy-900" />
+            <span class="${item.done ? 'line-through text-slate-400' : 'font-semibold text-slate-800'}">${esc(item.text)}</span>
+          </label>
+        `).join('');
+
+        document.querySelectorAll('.sop-chk').forEach((chk) => {
+          chk.addEventListener('change', () => {
+            sopItems[Number(chk.getAttribute('data-sop-idx'))].done = chk.checked;
+            renderSop();
+          });
+        });
+      }
+      renderSop();
+
+      document.getElementById('add-sop-btn').addEventListener('click', () => {
+        const inp = document.getElementById('new-sop-input');
+        if (!inp.value.trim()) return;
+        sopItems.push({ text: inp.value.trim(), done: false });
+        inp.value = '';
+        renderSop();
+        showToast('تمت إضافة المهمة إلى قائمة التشغيل');
+      });
+
+      document.getElementById('reset-sop-btn').addEventListener('click', () => {
+        sopItems = DEFAULT_SOP.map((x) => ({ ...x }));
+        renderSop();
+        showToast('تمت إعادة ضبط قائمة التشغيل اليومية');
+      });
+
+      // ==================== 5. ALL 4 SPECIALIZED CALCULATORS ====================
+      // Calc 1: Petroleum Unit & Density Converter
+      const convVal = document.getElementById('conv-val');
+      const convUnit = document.getElementById('conv-unit');
+      const convSg = document.getElementById('conv-sg');
+
+      function updateUnitConverter() {
+        const val = parseFloat(convVal.value) || 0;
+        const unit = convUnit.value;
+        const sg = Math.max(0.1, parseFloat(convSg.value) || 0.87);
+
+        let liters = 0;
+        if (unit === 'L') liters = val;
+        else if (unit === 'MT') liters = (val * 1000) / sg;
+        else if (unit === 'BBL') liters = val * 158.9873;
+        else if (unit === 'GAL') liters = val * 3.78541;
+        else if (unit === 'M3') liters = val * 1000;
+
+        const mt = (liters * sg) / 1000;
+        const bbl = liters / 158.9873;
+        const gal = liters / 3.78541;
+        const m3 = liters / 1000;
+        const api = (141.5 / sg) - 131.5;
+
+        document.getElementById('res-mt').textContent = mt.toFixed(2) + ' MT';
+        document.getElementById('res-liters').textContent = Math.round(liters).toLocaleString() + ' L';
+        document.getElementById('res-bbl').textContent = bbl.toFixed(2) + ' BBL';
+        document.getElementById('res-gal').textContent = gal.toFixed(2) + ' GAL';
+        document.getElementById('res-m3').textContent = m3.toFixed(2) + ' m³';
+        document.getElementById('res-api').textContent = api.toFixed(2) + ' °API';
+      }
+
+      [convVal, convUnit, convSg].forEach((el) => el.addEventListener('input', updateUnitConverter));
+      document.querySelectorAll('.sg-preset').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          convSg.value = btn.getAttribute('data-sg');
+          document.querySelectorAll('.sg-preset').forEach((b) => {
+            b.className = b === btn
+              ? 'sg-preset rounded-lg border-2 border-gold-500 bg-gold-50 px-2.5 py-1 text-[11px] font-extrabold text-navy-900'
+              : 'sg-preset rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-bold text-slate-700 hover:border-gold-500';
+          });
+          updateUnitConverter();
+        });
+      });
+      updateUnitConverter();
+
+      // Calc 2: Deal Margin, CIF/FOB & Commission
+      const mIds = ['m-qty', 'm-buy', 'm-sell', 'm-curr', 'm-costs', 'm-comm'];
+      function updateMarginCalc() {
+        const qty = parseFloat(document.getElementById('m-qty').value) || 0;
+        const buy = parseFloat(document.getElementById('m-buy').value) || 0;
+        const sell = parseFloat(document.getElementById('m-sell').value) || 0;
+        const curr = document.getElementById('m-curr').value;
+        const costs = parseFloat(document.getElementById('m-costs').value) || 0;
+        const commPct = parseFloat(document.getElementById('m-comm').value) || 0;
+
+        const revenue = qty * sell;
+        const commAmt = revenue * (commPct / 100);
+        const totalCost = (qty * buy) + costs + commAmt;
+        const netProfit = revenue - totalCost;
+        const marginPct = revenue > 0 ? (netProfit / revenue) * 100 : 0;
+        const unitProfit = qty > 0 ? netProfit / qty : 0;
+        const usdProfit = curr === 'USD' ? netProfit : netProfit / 3.6725;
+
+        document.getElementById('m-res-cost').textContent = `${curr} ${Math.round(totalCost).toLocaleString()}`;
+        document.getElementById('m-res-rev').textContent = `${curr} ${Math.round(revenue).toLocaleString()}`;
+        document.getElementById('m-res-net').textContent = `${curr} ${Math.round(netProfit).toLocaleString()}`;
+        document.getElementById('m-res-usd').textContent = `$${usdProfit.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        document.getElementById('m-res-pct').textContent = `${marginPct.toFixed(2)}%`;
+        document.getElementById('m-res-unit').textContent = `${curr} ${unitProfit.toFixed(3)} / unit`;
+      }
+      mIds.forEach((id) => document.getElementById(id).addEventListener('input', updateMarginCalc));
+      updateMarginCalc();
+
+      // Calc 3: Tank / Drum / IBC Container Calculator
+      function updateContainerCalc() {
+        const unitCap = parseFloat(document.getElementById('c-type').value) || 208;
+        const count = parseFloat(document.getElementById('c-count').value) || 1;
+        const sg = parseFloat(document.getElementById('c-sg').value) || 0.87;
+        const totalLiters = unitCap * count;
+        const netMt = (totalLiters * sg) / 1000;
+        const fcl20 = totalLiters / 16640;
+
+        document.getElementById('c-res-vol').textContent = `${Math.round(totalLiters).toLocaleString()} L`;
+        document.getElementById('c-res-wt').textContent = `${netMt.toFixed(2)} MT`;
+        document.getElementById('c-res-fcl').textContent = `${fcl20.toFixed(2)} × 20' FCL`;
+      }
+      ['c-type', 'c-count', 'c-sg'].forEach((id) => document.getElementById(id).addEventListener('input', updateContainerCalc));
+      updateContainerCalc();
+
+      // Calc 4: UAE Tax & VAT Estimator
+      function updateTaxCalc() {
+        const amt = parseFloat(document.getElementById('t-amount').value) || 0;
+        const mode = document.getElementById('t-mode').value;
+        let tax = 0;
+        let total = amt;
+
+        if (mode === 'vat5') {
+          tax = amt * 0.05;
+          total = amt + tax;
+        } else if (mode === 'vat0') {
+          tax = 0;
+          total = amt;
+        } else if (mode === 'corp9') {
+          tax = amt > 375000 ? (amt - 375000) * 0.09 : 0;
+          total = amt - tax;
+        }
+
+        document.getElementById('t-res-base').textContent = `AED ${Math.round(amt).toLocaleString()}`;
+        document.getElementById('t-res-tax').textContent = `AED ${Math.round(tax).toLocaleString()}`;
+        document.getElementById('t-res-total').textContent = `AED ${Math.round(total).toLocaleString()}`;
+      }
+      ['t-amount', 't-mode'].forEach((id) => document.getElementById(id).addEventListener('input', updateTaxCalc));
+      updateTaxCalc();
+
+      // ==================== 6. MARKET BENCHMARKS, NEWS & RECOMMENDATIONS ====================
+      const DEFAULT_BENCHMARKS = [
+        { id: 'brent', name: 'Brent Crude (ICE)', unit: 'USD / BBL', price: '72.80', delta: '+0.85%' },
+        { id: 'murban', name: 'ADNOC Murban Crude', unit: 'USD / BBL', price: '72.15', delta: '+0.62%' },
+        { id: 'gasoil', name: 'Gasoil 10ppm (Fujairah)', unit: 'USD / MT', price: '684.50', delta: '+1.10%' },
+        { id: 'sn500', name: 'Base Oil SN500 (Arab Gulf)', unit: 'USD / MT', price: '895.00', delta: 'Stable' },
+        { id: 'lube', name: 'Circulating Oil ISO VG 32-68', unit: 'AED / Liter', price: '4.65', delta: 'Ref Quote' }
+      ];
+
+      let benchmarks = loadStore('benchmarks', DEFAULT_BENCHMARKS);
+
+      function renderBenchmarks() {
+        const grid = document.getElementById('market-benchmarks-grid');
+        grid.innerHTML = benchmarks.map((b, idx) => `
+          <div class="rounded-xl border border-slate-200 bg-slate-50/70 p-3.5">
+            <div class="flex items-center justify-between text-[10px]">
+              <span class="font-bold text-slate-500">${esc(b.unit)}</span>
+              <span class="rounded bg-emerald-100 px-1.5 py-0.5 font-bold text-emerald-800">${esc(b.delta)}</span>
+            </div>
+            <p class="mt-1 text-xs font-extrabold text-navy-900">${esc(b.name)}</p>
+            <div class="mt-2 flex items-center gap-1.5">
+              <input type="text" data-b-idx="${idx}" value="${esc(b.price)}" class="bench-price-inp w-full rounded-lg border border-slate-300 bg-white px-2.5 py-1 font-mono text-sm font-extrabold text-gold-700 focus:border-gold-500 focus:outline-none" />
+            </div>
+          </div>
+        `).join('');
+
+        document.querySelectorAll('.bench-price-inp').forEach((inp) => {
+          inp.addEventListener('change', () => {
+            benchmarks[Number(inp.getAttribute('data-b-idx'))].price = inp.value;
+            localStorage.setItem(STORAGE_PREFIX + 'benchmarks', JSON.stringify(benchmarks));
+            showToast('تم حفظ السعر المرجعي المحدّث');
+          });
+        });
+      }
+      renderBenchmarks();
+
+      document.getElementById('reset-prices-btn').addEventListener('click', () => {
+        benchmarks = DEFAULT_BENCHMARKS.map((x) => ({ ...x }));
+        localStorage.setItem(STORAGE_PREFIX + 'benchmarks', JSON.stringify(benchmarks));
+        renderBenchmarks();
+        showToast('تمت استعادة المؤشرات المرجعية الافتراضية');
+      });
+
+      const DEFAULT_NEWS = [
+        { tag: 'opportunity', badge: 'فرصة تجارية • الإمارات', title: 'ارتفاع الطلب الصناعي على زيوت التوربينات والتدوير (ISO VG 32/46/68) في أبوظبي ودبي', body: 'تشهد مشاريع الطاقة وتحلية المياه والمصانع التحويلية نمواً في عقود الصيانة الفصلية، مما يعزز جدوى تأمين كميات 90,000 لتر+ من أدنوك للتوزيع وإعادة توزيعها بعقود ربع سنوية.' },
+        { tag: 'pricing', badge: 'استراتيجية التسعير • الفجيرة', title: 'استقرار هوامش تداول وقود الديزل منخفض الكبريت (Gasoil 10ppm) في الخليج العربي', body: 'التوصية: اعتماد تسعير مرتبط بمتوسط نشرات الخليج العربي (Arab Gulf Mean) مع تثبيت صلاحية عروض الأسعار لمدة 48–72 ساعة فقط لتفادي تذبذبات الشحن.' },
+        { tag: 'risk', badge: 'تنبيه مخاطر وامتثال • التمويل', title: 'اشتراط الدفع المسبق (100% TT) أو الاعتمادات المستندية المعززة (Confirmed LC) للصفقات الجديدة', body: 'لتجنب مخاطر تأخر التحصيل، يجب حصر التعاملات الجديدة على التحويلات البنكية المسبقة قبل التحميل من المستودع أو اعتمادات بنكية صادرة من بنوك الفئة الأولى في الإمارات.' }
+      ];
+
+      let marketNews = loadStore('news', DEFAULT_NEWS);
+      let activeMTag = 'all';
+
+      function renderMarketNews() {
+        const list = document.getElementById('market-news-list');
+        const filtered = activeMTag === 'all' ? marketNews : marketNews.filter((n) => n.tag === activeMTag);
+        list.innerHTML = filtered.map((n) => `
+          <div class="rounded-xl border border-slate-200 bg-slate-50/60 p-4">
+            <span class="inline-block rounded-md bg-navy-900 px-2 py-0.5 text-[10px] font-bold text-gold-400">${esc(n.badge)}</span>
+            <h4 class="mt-1.5 text-sm font-extrabold text-navy-900">${esc(n.title)}</h4>
+            <p class="mt-1 leading-relaxed text-slate-600">${esc(n.body)}</p>
+          </div>
+        `).join('');
+      }
+      renderMarketNews();
+
+      document.querySelectorAll('.m-tag-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          activeMTag = btn.getAttribute('data-mtag');
+          document.querySelectorAll('.m-tag-btn').forEach((b) => {
+            b.className = b === btn
+              ? 'm-tag-btn rounded-lg bg-navy-900 px-2.5 py-1 text-[11px] font-bold text-white'
+              : 'm-tag-btn rounded-lg bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-600';
+          });
+          renderMarketNews();
+        });
+      });
+
+      document.getElementById('add-market-note-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const title = document.getElementById('mn-title').value.trim();
+        const tag = document.getElementById('mn-tag').value;
+        const body = document.getElementById('mn-body').value.trim();
+        const badgeMap = { opportunity: 'فرصة تجارية مضافة', pricing: 'تسعيرة / استراتيجية', risk: 'تنبيه مخاطر' };
+        marketNews.unshift({ tag, badge: badgeMap[tag] || 'ملاحظة سوقية', title, body });
+        localStorage.setItem(STORAGE_PREFIX + 'news', JSON.stringify(marketNews));
+        renderMarketNews();
+        e.target.reset();
+        showToast('تم حفظ التوصية في سجل السوق');
+      });
+
+      // ==================== 7. TRADERS, SUPPLIERS & CRM DIRECTORY ====================
+      const DEFAULT_CRM = [
+        { company: 'ADNOC Distribution (أدنوك للتوزيع)', person: 'Mr. Janom / Polaka (Commercial Lubricants)', cat: 'Supplier', status: 'Strategic Supplier', contact: 'Abu Dhabi, UAE • Commercial Lubricants Desk' },
+        { company: 'Mashreq Business Banking (بنك المشرق)', person: 'SME KYC & Corporate Desk', cat: 'Banking', status: 'KYC Verified', contact: 'Ref: MD-KYC-DEMO-REF-****-L1' },
+        { company: 'SGS Gulf Limited (إس جي إس للفحص)', person: 'Oil, Gas & Chemicals Inspection Team', cat: 'Logistics', status: 'Approved Inspector', contact: 'Fujairah / Jebel Ali • Quantity & Quality (COA)' },
+        { company: 'Fujairah Oil Terminal / Bunker Hub', person: 'Spot Gasoil & Fuel Oil Operations', cat: 'Supplier', status: 'Terminal Partner', contact: 'Port of Fujairah, UAE • Ex-Tank / FOB' },
+        { company: 'Al Noor Lubricants & Industrial Trading', person: 'Procurement & Blending Department', cat: 'Buyer', status: 'Active Buyer', contact: 'Sharjah / Dubai, UAE • Industrial Oils' },
+        { company: 'Hamriyah Free Zone Blending Plants', person: 'Custom Drum & IBC Filling Partner', cat: 'Logistics', status: 'Approved Vendor', contact: 'Hamriyah FZ, Sharjah • 208L Drums / IBC' },
+        { company: 'East Africa Energy Links Ltd', person: 'Regional Import & Distribution Desk', cat: 'Buyer', status: 'Export Buyer', contact: 'Mombasa / Nairobi • Containerized Lubes' },
+        { company: 'Rami Al-Hamed Law Firm (مكتب المحامي رامي الحامد)', person: 'GCC Commercial & Legal Advisory', cat: 'Banking', status: 'Legal Counsel', contact: 'Riyadh, Saudi Arabia • Cross-Border Contracts' }
+      ];
+
+      let crmList = loadStore('crm', DEFAULT_CRM);
+      let activeCrmCat = 'all';
+
+      function renderCrm() {
+        const q = (document.getElementById('crm-search-input').value || '').trim().toLowerCase();
+        const grid = document.getElementById('crm-cards-grid');
+        document.getElementById('kpi-crm-count').textContent = `${crmList.length} أطراف`;
+
+        const filtered = crmList.filter((item) => {
+          const catOk = activeCrmCat === 'all' || item.cat === activeCrmCat;
+          const qOk = !q || (item.company + item.person + item.contact + item.status).toLowerCase().includes(q);
+          return catOk && qOk;
+        });
+
+        grid.innerHTML = filtered.map((c) => `
+          <div class="flex flex-col justify-between rounded-2xl border border-slate-200 bg-slate-50/60 p-4 transition hover:border-gold-500 hover:bg-white">
+            <div>
+              <div class="flex items-center justify-between gap-2">
+                <span class="rounded-md bg-navy-900 px-2 py-0.5 text-[10px] font-bold text-gold-400">${esc(c.cat)}</span>
+                <span class="rounded-full bg-emerald-100 px-2.5 py-0.5 text-[10px] font-bold text-emerald-800">${esc(c.status)}</span>
+              </div>
+              <h3 class="mt-2 text-sm font-extrabold text-navy-900">${esc(c.company)}</h3>
+              <p class="mt-0.5 text-xs font-bold text-slate-700">${esc(c.person)}</p>
+              <p class="mt-1 font-mono text-[11px] text-slate-500">${esc(c.contact)}</p>
+            </div>
+            <div class="mt-3 flex gap-2 border-t border-slate-200/70 pt-2.5">
+              <button type="button" data-copy="${esc(c.company)} | ${esc(c.person)} | ${esc(c.contact)}" class="copy-btn flex-1 rounded-lg border border-slate-300 bg-white py-1 text-[11px] font-bold text-navy-900 hover:bg-slate-100">نسخ البيانات</button>
+              <button type="button" data-draft-to="${esc(c.company)}" class="draft-to-btn flex-1 rounded-lg bg-gold-500 py-1 text-[11px] font-extrabold text-navy-900 hover:bg-gold-400">مخاطبة رسمية ↗</button>
+            </div>
+          </div>
+        `).join('');
+
+        document.querySelectorAll('.draft-to-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            document.getElementById('lh-recipient').value = `السادة / ${btn.getAttribute('data-draft-to')} المحترمين`;
+            syncLh();
+            navigateToModule('studio');
+            showToast('تم تجهيز الخطاب الرسمي للطرف المختار');
+          });
+        });
+      }
+      renderCrm();
+
+      document.getElementById('crm-search-input').addEventListener('input', renderCrm);
+      document.querySelectorAll('.crm-cat-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          activeCrmCat = btn.getAttribute('data-crmcat');
+          document.querySelectorAll('.crm-cat-btn').forEach((b) => {
+            b.className = b === btn
+              ? 'crm-cat-btn rounded-lg bg-navy-900 px-3 py-1.5 font-bold text-white'
+              : 'crm-cat-btn rounded-lg bg-slate-100 px-3 py-1.5 font-semibold text-slate-700';
+          });
+          renderCrm();
+        });
+      });
+
+      // Modals (Add Deal / Add CRM)
+      const modalBackdrop = document.getElementById('modal-backdrop');
+      const addDealForm = document.getElementById('add-deal-form');
+      const addCrmForm = document.getElementById('add-crm-form');
+
+      function closeAllModals() {
+        modalBackdrop.classList.add('hidden');
+        modalBackdrop.classList.remove('flex');
+        addDealForm.classList.add('hidden');
+        addCrmForm.classList.add('hidden');
+      }
+
+      document.getElementById('open-add-deal-btn').addEventListener('click', () => {
+        modalBackdrop.classList.remove('hidden');
+        modalBackdrop.classList.add('flex');
+        addDealForm.classList.remove('hidden');
+      });
+
+      document.getElementById('open-add-crm-btn').addEventListener('click', () => {
+        modalBackdrop.classList.remove('hidden');
+        modalBackdrop.classList.add('flex');
+        addCrmForm.classList.remove('hidden');
+      });
+
+      document.querySelectorAll('.close-modal-btn').forEach((b) => b.addEventListener('click', closeAllModals));
+
+      addDealForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        deals.unshift({
+          id: 'DL-GH-2026-' + Math.floor(100 + Math.random() * 899),
+          party: document.getElementById('nd-party').value.trim(),
+          product: document.getElementById('nd-product').value.trim(),
+          value: Number(document.getElementById('nd-value').value) || 0,
+          margin: Number(document.getElementById('nd-margin').value) || 0,
+          stage: 'Inquiry'
+        });
+        saveDeals();
+        e.target.reset();
+        closeAllModals();
+        showToast('تمت إضافة الصفقة الجديدة بنجاح');
+      });
+
+      addCrmForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        crmList.unshift({
+          company: document.getElementById('nc-company').value.trim(),
+          person: document.getElementById('nc-person').value.trim(),
+          cat: document.getElementById('nc-cat').value,
+          status: 'Verified Partner',
+          contact: document.getElementById('nc-contact').value.trim()
+        });
+        localStorage.setItem(STORAGE_PREFIX + 'crm', JSON.stringify(crmList));
+        renderCrm();
+        e.target.reset();
+        closeAllModals();
+        showToast('تمت إضافة الطرف الجديد إلى الدليل');
+      });
+
+      // ==================== 8. AI WRITING STUDIO & TEMPLATES + LETTERHEAD ====================
+      const stInput = document.getElementById('st-input');
+      const stOutput = document.getElementById('st-output');
+      const stInsights = document.getElementById('st-insights');
+
+      document.getElementById('st-sample-ar').addEventListener('click', () => {
+        stInput.value = 'السادة شركة ادنوك للتوزيع المحترمين،، تحيه طيبه وبعد. نود اعلامكم ان شركه جولدن هورس ترغب في شراء كميه 90000 لتر من زيوت التدوير الصناعيه، برجاء ارسال عرض الاسعار النهائى في اسرع وقت ممكن وشكرا.';
+      });
+      document.getElementById('st-sample-en').addEventListener('click', () => {
+        stInput.value = 'Dear ADNOC Distribution team, we are intrested to purchase 90,000 liters of circulating oil for comercial resale in UAE. Please send us your proforma invoice asap.';
+      });
+
+      document.getElementById('st-proofread-btn').addEventListener('click', () => {
+        const txt = stInput.value.trim();
+        if (!txt) return showToast('أدخل النص أولاً');
+        let out = txt;
+        const fixes = [];
+        const isAr = /[\u0600-\u06FF]/.test(txt);
+
+        if (isAr) {
+          const rules = [
+            [/ادنوك/g, 'أدنوك'], [/تحيه طيبه/g, 'تحية طيبة'], [/اعلامكم/g, 'إعلامكم'],
+            [/ان شركه/g, 'أن شركة'], [/كميه/g, 'كمية'], [/الصناعيه/g, 'الصناعية'],
+            [/الاسعار/g, 'الأسعار'], [/النهائى/g, 'النهائي'], [/اسرع/g, 'أسرع'], [/وشكرا/g, 'وشكراً']
+          ];
+          rules.forEach(([rx, rep]) => {
+            if (rx.test(out)) {
+              fixes.push(`${out.match(rx)[0]} ← ${rep}`);
+              out = out.replace(rx, rep);
+            }
+          });
+          out = out.replace(/،،\s*/g, '،\n\n');
+        } else {
+          out = out
+            .replace(/intrested to purchase/gi, 'interested in purchasing')
+            .replace(/comercial/gi, 'commercial')
+            .replace(/asap/gi, 'at your earliest convenience');
+          fixes.push('Grammar & Executive Tone Polished');
+        }
+        stOutput.value = out;
+        stInsights.innerHTML = fixes.length
+          ? `<div class="rounded-lg bg-emerald-50 p-2 font-bold text-emerald-800">تم تطبيق التحسينات: ${esc(fixes.join(' • '))}</div>`
+          : `<div class="rounded-lg bg-emerald-50 p-2 font-bold text-emerald-800">النص سليم ومطابق للأسلوب التنفيذي.</div>`;
+      });
+
+      document.querySelectorAll('.st-rw-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const mode = btn.getAttribute('data-rw');
+          const isAr = /[\u0600-\u06FF]/.test(stInput.value);
+          if (isAr) {
+            stOutput.value = mode === 'concise'
+              ? 'السادة المحترمون،\nنؤكد رغبة شركة جولدن هورس (رخصة 778861) في شراء 90,000 لتر من زيوت ADNOC Circulating Oil. يرجى تزويدنا بالفاتورة المبدئية والمواصفات الفنية (TDS/SDS) لاعتماد الطلب.\nمع خالص التقدير، الإدارة التنفيذية.'
+              : 'السادة المحترمون،\n\nتحية طيبة وبعد،،،\n\nتتشرف شركة جولدن هورس لتجارة مشتقات تكرير النفط خارج الدولة ش.ذ.م.م (المسجلة في دبي برخصة رقم 778861) بمخاطبتكم بشأن طلب توريد كمية (90,000 لتر) من المنتجات البترولية وفق المواصفات القياسية المعتمدة. يرجى التكرم بموافاتنا بالعرض التجاري الرسمي والفاتورة المبدئية لاستكمال إجراءات السداد والتحميل.\n\nوتفضلوا بقبول فائق الاحترام والتقدير،،،';
+          } else {
+            stOutput.value = 'Dear Sirs,\n\nGolden Horse Trading Refined Oil Products Abroad L.L.C. (DET License 778861) hereby confirms its formal interest in procuring 90,000 Liters of ADNOC Industrial Circulating Oil for commercial distribution within the UAE. Kindly provide your official Proforma Invoice and TDS/SDS documentation at your earliest convenience.\n\nYours faithfully,\nEng. [Signatory Name]\nExecutive Director & General Manager';
+          }
+          stInsights.innerHTML = `<div class="rounded-lg bg-gold-50 p-2 font-bold text-navy-900">تمت إعادة الصياغة بأسلوب (${esc(btn.textContent)})</div>`;
+        });
+      });
+
+      document.getElementById('st-translate-btn').addEventListener('click', () => {
+        const isAr = /[\u0600-\u06FF]/.test(stInput.value);
+        stOutput.value = isAr
+          ? 'Dear Sirs / ADNOC Distribution,\n\nGreetings from Golden Horse Trading Refined Oil Products Abroad L.L.C. (GHPetro).\n\nWe hereby express our formal interest in procuring 90,000 Liters of ADNOC Industrial Circulating Oil for commercial resale within the UAE. Kindly share your official Proforma Invoice (PI) and Technical Data Sheets (TDS/SDS) at your earliest convenience.\n\nBest regards,\nEng. [Signatory Name]\nExecutive Director & General Manager'
+          : 'السادة / شركة أدنوك للتوزيع المحترمين،\n\nتحية طيبة وبعد،،،\n\nتهديكم شركة جولدن هورس لتجارة مشتقات تكرير النفط خارج الدولة ش.ذ.م.م (GHPetro) أطيب تحياتها، ونود إفادتكم برغبتنا الرسمية في شراء كمية (90,000 لتر) من زيوت التدوير الصناعية (ADNOC Circulating Oil) للتوزيع التجاري داخل دولة الإمارات العربية المتحدة. يرجى موافاتنا بالفاتورة المبدئية ونشرات المواصفات الفنية (TDS/SDS).\n\nوتفضلوا بقبول وافر الاحترام والتقدير،،،';
+        stInsights.innerHTML = `<div class="rounded-lg bg-sky-50 p-2 font-bold text-sky-900">تمت الترجمة التجارية المعتمدة (${isAr ? 'AR → EN' : 'EN → AR'})</div>`;
+      });
+
+      document.getElementById('st-copy-btn').addEventListener('click', () => {
+        if (stOutput.value.trim()) copyToClipboard(stOutput.value);
+      });
+
+      document.getElementById('st-to-lh-btn').addEventListener('click', () => {
+        if (!stOutput.value.trim()) return showToast('لا يوجد نص مصحح للنقل');
+        document.getElementById('lh-body').value = stOutput.value;
+        syncLh();
+        showToast('تم نقل النص المصحح إلى ورقة الليتر هيد أدناه');
+      });
+
+      // Ready-Made Letterhead Templates
+      const LH_TEMPLATES = [
+        {
+          label: 'خطاب نوايا (LOI)',
+          ref: 'LOI-GH-ADNOC-2026-001',
+          rec: 'السادة / شركة أدنوك للتوزيع المحترمين (ADNOC Distribution)\nعناية الأستاذ / جانوم المحترم (Attn: Mr. Janom)',
+          sub: 'خطاب نوايا لشراء 90,000 لتر من زيوت ADNOC Circulating Oil',
+          body: 'تحية طيبة وبعد،،،\n\nتهديكم شركة جولدن هورس لتجارة مشتقات تكرير النفط خارج الدولة ش.ذ.م.م (رخصة تجارية رقم 778861) أطيب تحياتها، ونؤكد بموجب هذا الخطاب رغبتنا التجارية الجادة في شراء كمية (90,000 لتر) من زيوت التدوير الصناعية (ADNOC GII Turbine / Circulating Oil - ISO VG 22/32/46/68) بغرض إعادة البيع التجاري داخل دولة الإمارات العربية المتحدة.\n\n• آلية التسليم: التحميل عبر الصهاريج البرية المعتمدة (Road Tanker Lifting).\n• شروط السداد: دفع مقدم بنسبة 100% بموجب الفاتورة المبدئية المعتمدة.\n\nيرجى التكرم بموافاتنا بالعرض الرسمي ونشرات المواصفات الفنية (TDS/SDS) لإصدار أمر الشراء.'
+        },
+        {
+          label: 'عرض أسعار (Quotation)',
+          ref: 'QTN-GH-2026-042',
+          rec: 'السادة / إدارة المشتريات والعقود المحترمين',
+          sub: 'عرض أسعار رسمي لتوريد وقود الديزل والزيوت الصناعية',
+          body: 'تحية طيبة وبعد،،،\n\nيسر شركة جولدن هورس لتجارة مشتقات تكرير النفط خارج الدولة ش.ذ.م.م (GHPetro) أن تتقدم إليكم بعرض الأسعار الرسمي لتوريد احتياجاتكم من المشتقات البترولية عالية الجودة وفق المواصفات القياسية المعتمدة في دولة الإمارات:\n\n1. المنتج: وقود الديزل (Gasoil 10ppm) / زيوت التزليق الصناعية.\n2. مكان التسليم: التسليم المباشر في موقع العميل داخل الدولة.\n3. صلاحية العرض: يسري هذا العرض لمدة (5) أيام عمل من تاريخ صدوره.\n\nنتطلع إلى بناء شراكة تجارية مستدامة مع مؤسستكم الموقرة.'
+        },
+        {
+          label: 'ملف تعريف KYC',
+          ref: 'KYC-GH-2026-009',
+          rec: 'السادة / إدارة الامتثال والاعتماد المصرفي والتجاري المحترمين',
+          sub: 'تقديم الملف التعريفي وبيانات الامتثال (KYC) — شركة جولدن هورس ش.ذ.م.م',
+          body: 'تحية طيبة وبعد،،،\n\nنرفق لسيادتكم البيانات الرسمية ووثائق الامتثال (KYC) الخاصة بشركة جولدن هورس لتجارة مشتقات تكرير النفط خارج الدولة ش.ذ.م.م:\n\n• رقم الرخصة التجارية (DET Dubai): 778861 (سارية حتى 21/03/2027)\n• الرقم الموحد للمنشأة (ERN): 2010000000000778861\n• رقم عضوية غرفة دبي (DCCI): 286926 | رأس المال: 500,000 درهم\n• الشريك والمدير التنفيذي المفوض بالتوقيع: المهندس [اسم المفوض بالتوقيع] (51%)\n• العنوان المسجل: مكتب S01-21، الممزر، ديرة، دبي، ص.ب: 341740.'
+        },
+        {
+          label: 'أمر شراء (PO)',
+          ref: 'PO-GH-2026-019',
+          rec: 'السادة / إدارة المبيعات والعمليات اللوجستية المحترمين',
+          sub: 'أمر شراء رسمي معتمد رقم (PO-GH-2026-019)',
+          body: 'تحية طيبة وبعد،،،\n\nإشارةً إلى عرض الأسعار المعتمد، يرجى تنفيذ أمر الشراء الرسمي التالي لصالح شركة جولدن هورس لتجارة مشتقات تكرير النفط خارج الدولة ش.ذ.م.م:\n\n• الصنف: زيوت تدوير صناعية / مشتقات نفطية مكررة\n• الكمية: 90,000 لتر (تسعون ألف لتر)\n• المستندات المطلوبة: الفاتورة الضريبية الأصلية، إشعار التسليم، وشهادة المطابقة الفنية (COA).'
+        },
+        {
+          label: 'خطاب تفويض رسمي',
+          ref: 'AUTH-GH-2026-014',
+          rec: 'إلى من يهمه الأمر / To Whom It May Concern',
+          sub: 'تفويض رسمي لمتابعة الإجراءات اللوجستية والمستندية',
+          body: 'تحية طيبة وبعد،،،\n\nتفوض شركة جولدن هورس لتجارة مشتقات تكرير النفط خارج الدولة ش.ذ.م.م (رخصة تجارية رقم 778861) السيد / مصطفى عبد الحفيظ مصطفى صادق بتمثيل الشركة في متابعة المراسلات التجارية، واستلام المستندات الفنية، وتنسيق جداول التحميل والنقل داخل دولة الإمارات العربية المتحدة.'
+        },
+        {
+          label: 'متابعة فواتير وسداد',
+          ref: 'FIN-GH-2026-031',
+          rec: 'السادة / الإدارة المالية والمحاسبية المحترمين',
+          sub: 'تذكير ودي بخصوص تسوية الفاتورة المستحقة',
+          body: 'تحية طيبة وبعد،،،\n\nنشكركم على تعاونكم التجاري المستمر مع شركة جولدن هورس لتجارة مشتقات تكرير النفط خارج الدولة ش.ذ.م.م، ونود تذكيركم بلطف باستحقاق الفاتورة الصادرة مقابل التوريد الأخير. يرجى التكرم بموافاتنا بإشعار التحويل البنكي (SWIFT / TT) لتحديث كشف الحساب لديكم واستمرار التوريدات بسلاسة.'
+        }
+      ];
+
+      const tplGrid = document.getElementById('tpl-buttons-grid');
+      tplGrid.innerHTML = LH_TEMPLATES.map((t, i) => `
+        <button type="button" data-t-idx="${i}" class="lh-tpl-pick rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-start font-bold text-navy-900 transition hover:border-gold-500 hover:bg-gold-50">
+          ${esc(t.label)}
+        </button>
+      `).join('');
+
+      function applyLhTemplate(tpl) {
+        document.getElementById('lh-ref').value = tpl.ref;
+        document.getElementById('lh-recipient').value = tpl.rec;
+        document.getElementById('lh-subject').value = tpl.sub;
+        document.getElementById('lh-body').value = tpl.body;
+        syncLh();
+      }
+
+      document.querySelectorAll('.lh-tpl-pick').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          applyLhTemplate(LH_TEMPLATES[Number(btn.getAttribute('data-t-idx'))]);
+          showToast('تم تحميل القالب على الليتر هيد');
+        });
+      });
+
+      const a4Canvas = document.getElementById('a4-print-canvas');
+      document.querySelectorAll('.font-pair-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const cls = btn.getAttribute('data-font');
+          a4Canvas.classList.remove('pair-cairo-inter', 'pair-ibm-jakarta', 'pair-tajawal-dm', 'pair-amiri-playfair');
+          a4Canvas.classList.add(cls);
+          document.querySelectorAll('.font-pair-btn').forEach((b) => {
+            b.className = b === btn
+              ? 'font-pair-btn rounded-xl border-2 border-gold-500 bg-gold-50 p-2 text-start font-bold text-navy-900'
+              : 'font-pair-btn rounded-xl border border-slate-200 bg-white p-2 text-start font-bold text-slate-700';
+          });
+          showToast('تم تغيير خط المستند الرسمي');
+        });
+      });
+
+      function syncLh() {
+        document.getElementById('out-ref').textContent = document.getElementById('lh-ref').value;
+        document.getElementById('out-date').textContent = document.getElementById('lh-date').value;
+        document.getElementById('out-recipient').textContent = document.getElementById('lh-recipient').value;
+        document.getElementById('out-subject').textContent = document.getElementById('lh-subject').value;
+        document.getElementById('out-body').textContent = document.getElementById('lh-body').value;
+        document.getElementById('out-stamp-box').style.display = document.getElementById('lh-stamp-toggle').checked ? 'flex' : 'none';
+      }
+
+      ['lh-ref', 'lh-date', 'lh-recipient', 'lh-subject', 'lh-body'].forEach((id) => {
+        document.getElementById(id).addEventListener('input', syncLh);
+      });
+      document.getElementById('lh-stamp-toggle').addEventListener('change', syncLh);
+
+      const today = new Date();
+      document.getElementById('lh-date').value =
+        today.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) +
+        ' | ' +
+        today.toLocaleDateString('ar-AE', { day: 'numeric', month: 'long', year: 'numeric' });
+
+      applyLhTemplate(LH_TEMPLATES[0]);
+
+      document.getElementById('lh-download-html').addEventListener('click', () => {
+        const htmlContent = `<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><title>${esc(document.getElementById('lh-ref').value)}</title><link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800&family=DM+Sans:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"><\/script><style>.pair-cairo-inter{--lh-ar:'Cairo',sans-serif;--lh-en:'Inter',sans-serif;}.pair-ibm-jakarta{--lh-ar:'IBM Plex Sans Arabic',sans-serif;--lh-en:'Plus Jakarta Sans',sans-serif;}.pair-tajawal-dm{--lh-ar:'Tajawal',sans-serif;--lh-en:'DM Sans',sans-serif;}.pair-amiri-playfair{--lh-ar:'Amiri',serif;--lh-en:'Playfair Display',serif;}.lh-preview-root{font-family:var(--lh-ar),var(--lh-en),sans-serif;}.lh-en-text{font-family:var(--lh-en),sans-serif;}body{background:#f1f5f9;padding:20px;}</style></head><body>${a4Canvas.outerHTML}</body></html>`;
+        const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${document.getElementById('lh-ref').value || 'GoldenHorse-Doc'}.html`;
+        a.click();
+        showToast('تم تحميل المستند كملف HTML جاهز');
+      });
+
+      // ==================== 9. GLOBAL INSTANT SEARCH ACROSS ENTIRE HUB ====================
+      const globalSearchInput = document.getElementById('global-search-input');
+      const globalSearchResults = document.getElementById('global-search-results');
+
+      globalSearchInput.addEventListener('input', () => {
+        const q = globalSearchInput.value.trim().toLowerCase();
+        if (!q) {
+          globalSearchResults.classList.add('hidden');
+          return;
+        }
+
+        const results = [];
+        // Search Corporate Facts
+        const corpFacts = [
+          { title: 'الرخصة التجارية لدبي (DET License 778861)', sub: 'جولدن هورس لتجارة مشتقات تكرير النفط خارج الدولة ش.ذ.م.م • ERN: 2010000000000778861', mod: 'profile' },
+          { title: 'المهندس [اسم المفوض بالتوقيع] (51%)', sub: 'المدير التنفيذي والمدير العام • EID: 784-****-*******-*', mod: 'profile' },
+          { title: 'المقر الرئيسي: مكتب S01-21، الممزر، ديرة، دبي', sub: 'ص.ب: 341740 • هاتف: +971 4 320 8870 • www.ghpetro.me', mod: 'profile' },
+          { title: 'ملف KYC بنك المشرق (Mashreq Bank)', sub: 'مرجع: MD-KYC-DEMO-REF-****-L1', mod: 'profile' }
+        ];
+        corpFacts.forEach((f) => {
+          if ((f.title + f.sub).toLowerCase().includes(q)) results.push(f);
+        });
+
+        // Search Deals
+        deals.forEach((d) => {
+          if ((d.id + d.party + d.product + d.stage).toLowerCase().includes(q)) {
+            results.push({ title: `صفقة: ${d.party} (${d.id})`, sub: `${d.product} • AED ${Number(d.value).toLocaleString()}`, mod: 'command' });
+          }
+        });
+
+        // Search CRM
+        crmList.forEach((c) => {
+          if ((c.company + c.person + c.contact + c.cat).toLowerCase().includes(q)) {
+            results.push({ title: `طرف / مورد: ${c.company}`, sub: `${c.person} • ${c.contact}`, mod: 'crm' });
+          }
+        });
+
+        // Search Benchmarks
+        benchmarks.forEach((b) => {
+          if ((b.name + b.unit + b.price).toLowerCase().includes(q)) {
+            results.push({ title: `سعر مرجعي: ${b.name}`, sub: `${b.price} ${b.unit}`, mod: 'markets' });
+          }
+        });
+
+        if (!results.length) {
+          globalSearchResults.innerHTML = `<div class="p-3 text-center text-xs text-slate-500">لا توجد نتائج مطابقة لـ "${esc(globalSearchInput.value)}"</div>`;
+        } else {
+          globalSearchResults.innerHTML = results.slice(0, 8).map((r) => `
+            <button type="button" data-jump-mod="${esc(r.mod)}" class="global-jump-btn flex w-full flex-col rounded-xl px-3 py-2 text-start transition hover:bg-gold-50">
+              <span class="text-xs font-extrabold text-navy-900">${esc(r.title)}</span>
+              <span class="text-[11px] text-slate-500">${esc(r.sub)}</span>
+            </button>
+          `).join('');
+
+          document.querySelectorAll('.global-jump-btn').forEach((btn) => {
+            btn.addEventListener('click', () => {
+              navigateToModule(btn.getAttribute('data-jump-mod'));
+              globalSearchResults.classList.add('hidden');
+            });
+          });
+        }
+        globalSearchResults.classList.remove('hidden');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('#global-search-input') && !e.target.closest('#global-search-results')) {
+          globalSearchResults.classList.add('hidden');
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>
